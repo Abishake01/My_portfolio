@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "portfolio/wsgi.py",
+        "src": "portfolio_web/wsgi.py",
         "use": "@vercel/python",
         "config": {
           "maxLambdaSize": "15mb",
@@ -24,7 +24,7 @@
       },
       {
         "src": "/(.*)",
-        "dest": "portfolio/wsgi.py"
+        "dest": "portfolio_web/wsgi.py"
       }
     ]
   }
