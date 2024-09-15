@@ -6,33 +6,52 @@
     <title>My Portfolio</title>
     {% load static %}
 
-    <link rel="stylesheet" href="{% static 'portfolio/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     <header>
         <nav>
-            <h1><a href="/">My Portfolio</a></h1>
+        <div class="nav-head">
+            <div class="head">
+                 <h1><a class="link" href="#home">My Portfolio</a></h1>
+            </div>
+            <div class="top-details"> 
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a class="link" href="#about"> About</a></li>
+                <li><a class="link" href="#projects">Projects</a></li>
+                <li><a class="link" href="#skills">Skills</a></li>
+                <li><a class="link" href="#contact">Contact</a></li>
             </ul>
+            </div>
+        </div>
         </nav>
     </header>
-
+    {% block content %}
+    {% endblock content %}
     <section id="hero">
-        <h2>Hello, I'm <span>Abishake</span></h2>
-        <p>I'm a web developer focused on creating dynamic websites.</p>
+        <div class="hero-head">
+        <div class="hero-img">
+            <img src="static/image/abishake.png" alt="Its Me" id="me">
+        </div>
+        <div class="hero-des">
+            <h2>Hello, I'm <span class="auto-type">Abishake</span></h2>
+            <p>I'm a web developer <br>focused on creating <br>
+                 dynamic websites.</p>
+        </div>
+    </div>
     </section>
 
     <section id="about">
+         
         <h2>About Me</h2>
         <p>I'm a skilled developer specializing in Django, React, and other web technologies.</p>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
+         
+        <div>
+            <h2>Projects</h2>
+        </div>
         <div class="projects-container">
             {% for project in projects %}
                 <div class="project-item">
@@ -42,12 +61,13 @@
                     <h3>{{ project.title }}</h3>
                     <p>{{ project.description }}</p>
                     {% if project.project_url %}
-                        <a href="{{ project.project_url }}" target="_blank">View Project</a>
+                    <a href="{{ project.project_url }}" target="_blank"> <button class="btn">View Project</button></a>
                     {% endif %}
                     
                 </div>
             {% endfor %}
         </div>
+     
     </section>
 
     <section id="skills">
@@ -59,8 +79,18 @@
         </ul>
     </section>
 
-    <footer>
+    <footer id="bottom">
         <p>&copy; 2024 Abishake. All rights reserved.</p>
     </footer>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed=new Typed(".auto-type",{
+            strings :['Programmer','Designer','Abishake'],
+            typeSpeed : 150,
+            bsckSpeed : 150,
+            looped : true
+
+        })
+    </script>
 </body>
 </html>

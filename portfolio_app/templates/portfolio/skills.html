@@ -1,0 +1,14 @@
+{% extends 'portfolio/home.html' %}
+{% block content %}
+
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        {% for skill in skills %}
+            <li>{{ skill.name }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+
+{% endblock content %}
