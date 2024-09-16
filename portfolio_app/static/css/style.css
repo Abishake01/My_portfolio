@@ -2,8 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: #333;
     
 }
 *{
@@ -62,6 +61,7 @@ header nav ul li a {
     align-items: center;
     justify-content: center;
 }
+ 
 
 #hero h2 {
     font-size: 3rem;
@@ -75,6 +75,7 @@ header nav ul li a {
 }
 #hero p{
     font-size: x-large;
+    margin: 0;
     /*
     width: 100%;
     overflow: hidden;
@@ -103,7 +104,7 @@ span{
     display: flex;
     align-items: center;
     gap: 300px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 #about {

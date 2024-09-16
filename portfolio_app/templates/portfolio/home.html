@@ -13,12 +13,12 @@
         <nav>
         <div class="nav-head">
             <div class="head">
-                 <h1><a class="link" href="#home">My Portfolio</a></h1>
+                 <h1><a class="link" href="{% url 'home' %}">My Portfolio</a></h1>
             </div>
             <div class="top-details"> 
             <ul>
                 <li><a class="link" href="#about"> About</a></li>
-                <li><a class="link" href="#projects">Projects</a></li>
+                <li><a class="link" href=" {% url 'project' %}">Projects</a></li>
                 <li><a class="link" href="#skills">Skills</a></li>
                 <li><a class="link" href="#contact">Contact</a></li>
             </ul>
@@ -31,15 +31,17 @@
     <section id="hero">
         <div class="hero-head">
         <div class="hero-img">
-            <img src="static/image/abishake.png" alt="Its Me" id="me">
+            <img src="static/image/abi.jpg" alt="Its Me" id="me">
         </div>
         <div class="hero-des">
             <h2>Hello, I'm <span class="auto-type">Abishake</span></h2>
-            <p>I'm a web developer <br>focused on creating <br>
-                 dynamic websites.</p>
+            <p> I'm a web developer 
+             focused on creating </p>
+            <p>dynamic websites.</p>
         </div>
     </div>
     </section>
+    <!--
 
     <section id="about">
          
@@ -82,6 +84,7 @@
     <footer id="bottom">
         <p>&copy; 2024 Abishake. All rights reserved.</p>
     </footer>
+    -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         var typed=new Typed(".auto-type",{
