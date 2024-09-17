@@ -147,12 +147,13 @@ span{
     display: flex;
     gap: 20px;
      
-    
-     
-     
      
 }
-
+.contact-head{
+    align-items: center;
+    justify-content: center;
+   
+}
 .project-item{
     
     position: relative;
