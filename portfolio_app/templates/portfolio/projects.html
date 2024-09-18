@@ -2,11 +2,11 @@
 {% block content %}
 
 <section id="projects">
-         
+    <div class="project-container">    
     <div>
         <h2>Projects</h2>
     </div>
-    <div class="projects-container">
+    <div class="projects-table">
         {% for project in projects %}
             <div class="project-item">
                 {% if project.image %}
@@ -21,6 +21,7 @@
             </div>
         {% endfor %}
     </div>
+</div> 
  
 </section>
 

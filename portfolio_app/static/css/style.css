@@ -17,16 +17,20 @@ header {
     color: #fff;
     padding: 0;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
-nav {
+nav { 
+     
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     padding: 0 30px;
-    position: fixed;
     background-color: #333;
-    width: 100%;
+     
     
 }
 .nav-head{
@@ -43,12 +47,12 @@ nav {
 header nav ul {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 20px;
 }
 
 header nav ul li {
     list-style: none;
-    font-size: x-large;
+    font-size: 1.2rem;
 }
 
 header nav ul li a {
@@ -59,10 +63,11 @@ header nav ul li a {
 #hero {
     background: #333;
     color: #fff;
-    height: 80vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 }
  
 
@@ -72,7 +77,7 @@ header nav ul li a {
 
 }
 #hero p{
-    font-size: x-large;
+    font-size: 1.2rem;
     margin: 0;
  
 }
@@ -90,15 +95,16 @@ span{
     align-items: center;
     gap: 300px;
     margin-top: 40px;
+
 }
 /* contact Style */
 .contact-head{
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+      
     color: white;
     font-weight: bold;
     padding-top: 50px;
-    padding-bottom: 5px;
+     
     font-size: 2rem;
     margin-left: 25%;
     border-bottom: 3px solid #ffdd00;
@@ -106,22 +112,41 @@ span{
      
 } 
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
-    padding: 40px;
+    padding: 20px;
 }
 .section {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;   
     padding: 20px 0;
-}
+    animation: appear linear;
+    animation-timeline: auto;
+    animation-range: entry 0;
+}/* animation-timeline: view();
+   
+ 
+@keyframes appear{
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+}*/
 .section img {
     height: 100%;
     width: 100%;
 }
 .text-content {
-    width: 45%;
+    width: 100%;
+    max-width: 45%;
+    margin: 20px;
+
 }
 .text-content h2 {
     font-size: 2rem;
@@ -130,7 +155,7 @@ span{
 }
 .text-content p {
     line-height: 1.6;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin-bottom: 20px;
     color: white;
 }
@@ -138,15 +163,16 @@ span{
     color: #03e9f4;
     font-size: 1.5rem;
 }
-.text-content a {
+.text-content .check-btn {
     color: #03e9f4;
     text-decoration: none;
     font-weight: bold;
     padding: 10px 20px;
     border: 2px solid #03e9f4;
     border-radius: 10px;
+    display: inline-block;
 }
-.text-content a:hover {
+.text-content .check-btn:hover {
     background-color:#03e9f4;
     color: #000;
     box-shadow: 0 0 5px #03e9f4,
@@ -159,22 +185,82 @@ span{
     flex-direction: row-reverse;
 }
 .image-content {
-    width: 45%;
+    width: 50%;
+}
+@media (max-width: 768px) {
+    .nav-head {
+        flex-direction: column;  /* Stack navigation items vertically */
+        gap: 20px;  /* Adjusted gap for mobile screens */
+    }
+
+    .hero-head {
+        flex-direction: column;  /* Stack hero items vertically */
+        text-align: center;
+        gap: 20px;  /* Reduced gap */
+    }
+
+    .hero-des {
+        margin-top: 20px;  /* Additional space for content */
+    }
+
+    .text-content, .image-content {
+        width: 100%;  /* Full width on mobile */
+    }
+
+    #me {
+        width: 80%;
+        height: auto;  /* Responsive image */
+        margin: 0 auto;
+    }
+}
+
+/* Projects and Skills Section Styles */
+/* Add similar responsiveness for project items, skills, and other sections */
+
+/* More responsive styles for smaller screens */
+@media (max-width: 480px) {
+    header nav ul {
+        flex-direction: column;  /* Stack navigation items */
+        gap: 10px;
+    }
+
+    #hero h2 {
+        font-size: 1.8rem;
+    }
+
+    #hero p {
+        font-size: 1rem;
+    }
+    
+    .section img {
+        max-width: 200px;
+    }
 }
 /* About page Style */
-#about {
+#about-page {
     background: #333;
-    color: #fff;
     height: 80vh;
-     
-    align-items: center;
-    justify-content: center;
+    text-align: center;
+    margin-top: 100px;
+    margin-left: 100px;
+    display: flex;
+    
 }
-#about h2{
+.about-container{
+      display: flex;
+      
+      
+}
+.about-img{
+    height: 100%;
+    width: 100%;
+}
+.about-head{
     font-size: 3rem;
-}
-#about p{
-    font-size: x-large;
+    font-weight: bolder;
+    color:yellow;
+    margin-left: 500px;
+
 }
 
 /* Projects page Style */
@@ -183,19 +269,19 @@ span{
     color: #fff;
     height: 80vh;
     display: flex;
-     
     justify-content: center;
+    margin-top: 100px;
 }
+
 .pro-title{
     justify-content: center;
      
 }
-
-
-#projects .projects-container {
+#projects .projects-table {
     position: relative;
     display: flex;
     gap: 20px;
+    
      
 }
 

@@ -1,13 +1,17 @@
 from django.shortcuts import render
-from .models import Project, Skill 
+from .models import Project, Skill ,Contact_me
 
 def home(request):
     projects = Project.objects.all()
-     
+    contacts = Contact_me.objects.all()
     context = {
         'projects': projects,
+        'contacts': contacts
     }
     return render(request, 'portfolio/home.html', context)
+
+def about(request):
+    return render(request,'portfolio/about.html')
  
 
 def project(request):

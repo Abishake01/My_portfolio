@@ -1,115 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     {% load static %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <link rel="script" href="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
     <header>
         <nav>
-        <div class="nav-head">
-            <div class="head">
-                 <h1><a class="link" href="{% url 'home' %}">My Portfolio</a></h1>
+            <div class="nav-head">
+                <div class="head">
+                    <h1><a class="link" href="{% url 'home' %}">My Portfolio</a></h1>
+                </div>
+                <div class="top-details">
+                    <ul>
+                        <li><a class="link" href=" {% url 'about' %}"> About</a></li>
+                        <li><a class="link" href=" {% url 'project' %}">Projects</a></li>
+                        <li><a class="link" href=" {% url 'skill' %}">Skills</a></li>
+                        <li><a class="link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="top-details"> 
-            <ul>
-                <li><a class="link" href="#about"> About</a></li>
-                <li><a class="link" href=" {% url 'project' %}">Projects</a></li>
-                <li><a class="link" href=" {% url 'skill' %}">Skills</a></li>
-                <li><a class="link" href="#contact">Contact</a></li>
-            </ul>
-            </div>
-        </div>
         </nav>
     </header>
     {% block content %}
-    
+
     <section id="hero">
         <div class="hero-head">
-        <div class="hero-img">
-            <img src="static/image/abi.jpg" alt="Its Me" id="me">
+            <div class="hero-img">
+                <img src="{% static 'image/abi.jpg' %}" alt="Its Me" id="me">
+            </div>
+            <div class="hero-des">
+                <h2>Hello, I'm <span class="auto-type">Abishake</span></h2>
+                <p> I'm a web developer focused on creating </p>
+                <p>dynamic websites.</p>
+            </div>
         </div>
-        <div class="hero-des">
-            <h2>Hello, I'm <span class="auto-type">Abishake</span></h2>
-            <p> I'm a web developer focused on creating </p>
-            <p>dynamic websites.</p>
-        </div>
-    </div>
     </section>
     <section id="contact-me">
         <h2 class="contact-head">Contact me through the platforms listed below</h2>
         <div class="container">
-
-            <!-- Telegram Section -->
+            {% for connect in contacts %}
             <div class="section">
                 <div class="image-content">
-                    <img src="{% static 'image/linkedin.jpg' %}" alt="linkedin">
+                    {% if connect.icon %}
+                    <img src="{{ connect.icon.url }}" alt="{{ connect }} logo" class="platform-icon">
+                    {% endif %}
                 </div>
                 <div class="text-content">
-                    <h2>LinkedIn</h2>
-                    <p>
-                        <strong>@ABISHAKE381</strong><br>
-                        If you have any questions or want to communicate, you may reach me through linked in. This is my linked in profile. I have some connections there. Visit LinkedIn to learn more about me. 
-                    </p><br>
-                    <a href="https://www.linkedin.com/in/abishake-t-835428257/" target="_blank">View My Profile</a>
+                    <strong>
+                        <a href="{{ connect.link }}"><h2>{{ connect }}</h2></a>
+                    </strong>
+                    <p>{{ connect.description }}</p><br>
+                    <a href="{{ connect.link }}" class="check-btn">Check it out now!</a>
                 </div>
             </div>
-        
-            <!-- Instagram Section -->
-            <div class="section">
-                <div class="image-content">
-                    <img src="{% static 'image/instagram.jpg' %}" alt="Instagram">
-                </div>
-                <div class="text-content">
-                    <h2>Instagram</h2>
-                    <p>
-                        <strong>@ABI_SHAKE45</strong><br>
-                        Here is the link to my Instagram page. If you have any tech-related queries, you can contact me there 
-                        or via LinkedIn or Instagram. I recently updated several posts about coding tutorials.
-                    </p><br>
-                    <a href="https://www.instagram.com/abi_shake45?igsh=MXJreHptem51MXppZw==" target="_blank">View My Page</a>
-                </div>
-            </div>
-             <!-- Github Section -->
-            <div class="section">
-                <div class="image-content">
-                    <img src="{% static 'image/git.webp' %}" alt="linkedin">
-                </div>
-                <div class="text-content">
-                    <h2>GitHub</h2>
-                    <p>
-                        <strong>@ABISHAKE01</strong><br>
-                        
-                    There is a link to my github page where you can view my projects, team work, and modules. Ive completed both team-based and solo projects. Im an open source contributor.
-                    </p><br>
-                    <a href="https://github.com/Abishake01" target="_blank">View My Code</a>
-                </div>
-            </div>
-        
-            <!-- Twitter Section -->
-            <div class="section">
-                <div class="image-content">
-                    <img src="{% static 'image/twitter.jpg' %}" alt="Instagram">
-                </div>
-                <div class="text-content">
-                    <h2>Twitter</h2>
-                    <p>
-                        <strong>@ABISHAKE381</strong><br>
-                        Here is the link to my Instagram page. If you have any tech-related queries, you can contact me there 
-                        or via LinkedIn or Instagram. I recently updated several posts about coding tutorials.
-                    </p><br>
-                    <a href="https://x.com/abishake381?s=09" target="_blank">View My Page</a>
-                </div>
-            </div>
-        
+            {% endfor %}
         </div>
-        
     </section>
     {% endblock content %}
+
 
     <!--
 
@@ -157,13 +113,14 @@
     -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
-        var typed=new Typed(".auto-type",{
-            strings :['Programmer','Designer','Abishake'],
-            typeSpeed : 150,
-            bsckSpeed : 150,
-            looped : true
+        var typed = new Typed(".auto-type", {
+            strings: ['Programmer', 'Designer', 'Abishake'],
+            typeSpeed: 150,
+            bsckSpeed: 150,
+            looped: true
 
         })
     </script>
 </body>
+
 </html>
