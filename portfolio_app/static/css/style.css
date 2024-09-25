@@ -7,8 +7,7 @@ body {
     background-color: #333;
     
 }
-*{
-    
+*{  
     text-decoration: none;
 }
 
@@ -268,17 +267,16 @@ span{
 .about-content{
     border-inline-start-width: 10px;
     border-color: #ffbb00;
+    margin-right: 100px;
     
 }
 .about-content p{
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     width: 100%;
     text-align: start;
-    margin-left: 10px;
     margin-top: 40px;
-    
-    
+    margin-inline-start: 10px;
 }
  
 
