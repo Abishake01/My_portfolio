@@ -246,7 +246,7 @@ span{
     text-align: center;
     margin-top: 100px;
     margin-left: 100px;
-    display: flex;
+     
     
 }
 .about-container{
@@ -265,12 +265,22 @@ span{
 
 }
 .about-content{
-    border-inline-start-width: 10px;
-    border-color: #ffbb00;
+    
     margin-right: 100px;
     
 }
+.about-content h1{
+    font-size: 2.3rem;
+    margin-right: 80px;
+    text-transform: uppercase;
+    background:linear-gradient(#f32170,#03e9f4,#ff00eb,#ffeb07);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .about-content p{
+    /*border-inline-start-width: 10px;
+    border-color: #ffbb00;*/
     color: white;
     font-size: 1.3rem;
     width: 100%;
@@ -278,8 +288,53 @@ span{
     margin-top: 40px;
     margin-inline-start: 10px;
 }
- 
+.about-content ul a{
+    font-size: 2.5rem; 
+    text-align: start;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 30px;
+    position: relative;
+    color: #000000d0;
+    border-radius: 50%;
 
+}
+.about-content a::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background: #03e9f4;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    z-index: -1;
+    transform: scale(0.9);
+    transition: .5s;
+}
+.about-content a:hover::before{
+    filter: blur(3px);
+    transform: scale(1.2);
+    box-shadow: 0 0 15px #c413be;
+}
+.about-content a:hover{
+    color:#03e9f4;
+    box-shadow: 0 0 15px #03e9f4;
+    text-shadow: 0 0 15px #03e9f4;
+}
+.about-content h2{
+    font-size: 3rem;
+    font-weight: bolder;
+    color:yellow;
+    margin-right: 90px;
+}
+.about-second h2{
+    font-size: 3rem;
+    font-weight: bolder;
+    color:yellow;
+    
+}
 /* Projects page Style */
 #projects {
     background: #333;
@@ -293,9 +348,9 @@ span{
 .pro-head{
  
     text-align: center;
-    font-size: xx-large;
+    font-size: 3rem;
     font-weight: bolder;
-    color: #03e9f4;
+    color: yellow;
     padding: 10px;
 }
      
