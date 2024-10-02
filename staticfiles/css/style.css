@@ -123,10 +123,10 @@ span{
     flex-wrap: wrap;   
     padding: 20px 0;
     animation: appear linear;
-    animation-timeline: auto;
+    animation-timeline: view();
     animation-range: entry 0;
     
-}/* animation-timeline: view();
+} 
    
  
 @keyframes appear{
@@ -138,7 +138,7 @@ span{
         opacity: 1;
         scale: 1;
     }
-}*/
+}
 .section img {
     height: 100%;
     width: 100%;
