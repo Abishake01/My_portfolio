@@ -28,6 +28,7 @@ nav {
     flex-wrap: wrap;
     padding: 0 30px;
     background-color: #333;
+   
     
 }
 .nav-head{
@@ -413,6 +414,11 @@ span{
     transition: .5s;
     border: 10px;
     border-radius: 5px;   
+    text-shadow: 0 0 10px cyan,
+                 0 0 20px cyan,
+                 0 0 40px cyan,
+                 0 0 80px cyan,
+                 0 0 100px cyan   ;
 
 }
 .link:hover{

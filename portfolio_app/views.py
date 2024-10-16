@@ -26,3 +26,5 @@ def skill(request):
         'skills': skills,
     }
     return render(request,'portfolio/skills.html',context)
+def contact(request):
+    return render(request,'portfolio/contact.html')
