@@ -33,7 +33,7 @@
         </nav>
     </header>
     {% block content %}
-
+     
     <section id="hero">
         <div class="hero-head">
             <div class="hero-img">
@@ -46,11 +46,13 @@
             </div>
         </div>
     </section>
-    <section id="contact-me">
+     
+    
+    <section id="contact-me ">
         <h2 class="contact-head">Contact me through the platforms listed below</h2>
-        <div class="container">
+        <div class="container ">
             {% for connect in contacts %}
-            <div class="section">
+            <div class="section ">
                 <div class="image-content">
                     {% if connect.icon %}
                     <img src="{{ connect.icon.url }}" alt="{{ connect }} logo" class="platform-icon">
@@ -67,6 +69,7 @@
             {% endfor %}
         </div>
     </section>
+ 
     {% endblock content %}
 
 
