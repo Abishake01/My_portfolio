@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #333;
-    background: url(image.png);
+    background: url(1.png);
 }
 *{  
     text-decoration: none;
@@ -29,7 +29,7 @@ body {
     100%{background-position: 0 181;}
 }
 header {
-    background-color: #333;
+    
     color: #fff;
     padding: 0;
     text-align: center;
@@ -38,13 +38,13 @@ header {
 }
 
 nav { 
-     
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     padding: 0 30px;
-    background-color: #333;
+    
    
     
 }
@@ -76,7 +76,8 @@ header nav ul li a {
 }
 
 #hero {
-    background: #333;
+ 
+    background: url(1.png);
     color: #fff;
     min-height: 80vh;
     display: flex;
@@ -258,7 +259,7 @@ span{
 }
 /* About page Style */
 #about-page {
-    background: #333;
+     
     height: 80vh;
     text-align: center;
     margin-top: 100px;
@@ -267,6 +268,7 @@ span{
     
 }
 .about-container{
+    background: url(1.png);
     display: flex;
       
 }
@@ -282,7 +284,6 @@ span{
 
 }
 .about-content{
-    
     margin-right: 100px;
     
 }
@@ -313,7 +314,7 @@ span{
     flex-wrap: wrap;
     padding: 0 30px;
     position: relative;
-    color: #000000d0;
+    color: #a3c4b2d0;
     border-radius: 50%;
 
 }
@@ -354,7 +355,7 @@ span{
 }
 /* Projects page Style */
 #projects {
-    background: #333;
+     
     color: #fff;
     height: 50vh;
     display: flex;
@@ -372,6 +373,7 @@ span{
 }
      
 #projects .projects-table {
+    
     position: relative;
     display: flex;
     gap: 30px;
@@ -379,10 +381,11 @@ span{
 }
 
 .project-item{  
+    
     position: relative;
     height: 100%;
     border-radius: 20px;
-    background:#333;
+    background:#f0d2d2;
     text-align: center;
     overflow: hidden;
     background-color: #fff;
@@ -503,7 +506,8 @@ span{
 
 /* skills page Style */
 #skills {
-    background: #333;
+    
+   
     color: #fff;
     height: 80vh;
     display: flex;

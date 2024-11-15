@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <link rel="script" href="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js">
+    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-head">
+                <div class="head">
+                    <h1><a class="link" href="{% url 'home' %}">My Portfolio</a></h1>
+                </div>
+                <div class="top-details">
+                    <ul>
+                        <li><a class="link" href=" {% url 'about' %}"> About</a></li>
+                        <li><a class="link" href=" {% url 'project' %}">Projects</a></li>
+                        <li><a class="link" href=" {% url 'skill' %}">Skills</a></li>
+                        <li><a class="link" href=" {% url 'contact' %}">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+   {% block content %}
+   {% endblock content %}
+    
+</body>
+
+</html>

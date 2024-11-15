@@ -1,38 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    {% load static %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
-    <link rel="script" href="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js">
-    <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
-    <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-
-<body>
-    <header>
-        <nav>
-            <div class="nav-head">
-                <div class="head">
-                    <h1><a class="link" href="{% url 'home' %}">My Portfolio</a></h1>
-                </div>
-                <div class="top-details">
-                    <ul>
-                        <li><a class="link" href=" {% url 'about' %}"> About</a></li>
-                        <li><a class="link" href=" {% url 'project' %}">Projects</a></li>
-                        <li><a class="link" href=" {% url 'skill' %}">Skills</a></li>
-                        <li><a class="link" href=" {% url 'contact' %}">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    {% block content %}
+{% extends 'portfolio/index.html' %}
+{% load static %}
+{% block content %}
      
     <section id="hero">
         <div class="hero-head">
@@ -69,54 +37,133 @@
             {% endfor %}
         </div>
     </section>
- 
-    {% endblock content %}
-
-
-    <!--
-
-    <section id="about">
-         
-        <h2>About Me</h2>
-        <p>I'm a skilled developer specializing in Django, React, and other web technologies.</p>
-    </section>
-
-    <section id="projects">
-         
-        <div>
-            <h2>Projects</h2>
+     
+<section id="about-page">
+    <div class="about-start">
+    <div class="about-container">
+        <div class="about-half">
+            <div class="about-img">
+                <img src="{% static 'image/spiderman.jpg' %}" alt="User_Profile">
+            </div>
         </div>
-        <div class="projects-container">
-            {% for project in projects %}
-                <div class="project-item">
-                    {% if project.image %}
-                        <img id="project_image" src="{{ project.image.url }}" alt="{{ project.title }}">
-                    {% endif %}
-                    <h3>{{ project.title }}</h3>
-                    <p>{{ project.description }}</p>
-                    {% if project.project_url %}
-                    <a href="{{ project.project_url }}" target="_blank"> <button class="btn">View Project</button></a>
-                    {% endif %}
+        <div>
+            <div class="about-head">
+                <h2>About</h2>
+            </div>
+
+            <div class="about-content">
+                <h1>Hello I am <strong>Abishake</strong>,</h1>
+                    <h1>but you can call me Abi :)</h1>
+                    
+                    <p>I'm currently pursuing a B.E. in Computer Science Engineering at Jaya Engineering College. I have a passion for building dynamic websites and specialize in web development. My technical skills include Python, HTML, CSS, JavaScript, and Django, and I also have design experience, being familiar with Figma. Along with my studies, I work as a freelance web developer, delivering creative and functional solutions to clients. Coding is not just my profession, but my hobby as well, and I am always eager to learn and improve.</p>
+                    <br>
+                    <div>
+                    <ul>
+                         
+                        <a href="https://github.com/Abishake01"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/abishake-t-835428257/"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/abi_shake45?igsh=MXJreHptem51MXppZw=="><i class="fa-brands fa-square-instagram"></i></a>
+                        <a href="https://www.facebook.com/abishake.abishake.7758?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://x.com/abishake381?s=09"><i class="fa-brands fa-square-x-twitter"></i></a>
+                         
+                    </ul><br>
                     
                 </div>
-            {% endfor %}
+            </div>
         </div>
-     
-    </section>
+        </div>
+    </div>
+</section>
+ 
+<section id="projects">
+    <div class="project-container">    
+    <div class="pro-head">
+        <h2>Projects</h2>  
+    </div>
+    <div class="projects-table">
+        {% for project in projects %}
+            <div class="project-item">
+                {% if project.image %}
+                    <img id="project_image" src="{{ project.image.url }}" alt="{{ project.title }}">
+                {% endif %}
+                <br>
+                <h3><strong>{{ project.title }}</strong></h3>
+                <p>{{ project.description }}</p>
+                {% if project.project_url %}
+                <a href="{{ project.project_url }}" target="_blank"> <button class="btn">View Project</button></a>
+                {% endif %}
+                
+            </div>
+        {% endfor %}
+    </div>
+</div> 
+ 
+</section>
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        {% for skill in skills %}
+            <li>{{ skill.name }}</li>
+        {% endfor %}
+    </ul>
+</section>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            {% for skill in skills %}
-                <li>{{ skill.name }}</li>
-            {% endfor %}
-        </ul>
-    </section>
+<section id="contact">
+    
+    <div class="flex items-center justify-center min-h-screen bg-teal-300">
+        <div class="  p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h1 class="text-3xl font-bold text-white text-center mb-6">Contact Me</h1>
+            <form action="{% url 'contact' %}" method="POST" class="space-y-4">
+                {% csrf_token %}
+                <div>
+                    <label class="block text-sm font-medium text-blue-50" for="name">Name</label>
+                    <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                           type="text" 
+                           id="name" 
+                           name="name" 
+                           placeholder="Your Name" 
+                           autocomplete="name">   
+                </div>
+    
+                <div>
+                    <label class="block text-sm font-medium text-blue-50" for="phone">Phone Number</label>
+                    <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                           type="tel" 
+                           id="phone" 
+                           name="phone" 
+                           placeholder="Your Phone Number" 
+                           autocomplete="tel">   
+                </div>
+    
+                <div>
+                    <label class="block text-sm font-medium text-blue-50" for="email">E-mail</label>
+                    <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                           type="email" 
+                           id="email" 
+                           name="email" 
+                           placeholder="Your E-mail" 
+                           autocomplete="email">   
+                </div>
+    
+                <div>
+                    <label class="block text-sm font-medium text-blue-50" for="message">Message</label>
+                    <textarea class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
+                              id="message" 
+                              name="message" 
+                              rows="4" 
+                              placeholder="Your Message" 
+                              autocomplete="off"></textarea>   
+                </div>
+    
+    
+                <div class="text-center">
+                    <button class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition duration-300" type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 
-    <footer id="bottom">
-        <p>&copy; 2024 Abishake. All rights reserved.</p>
-    </footer>
-    -->
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed(".auto-type", {
@@ -127,6 +174,11 @@
 
         })
     </script>
+ 
+{% endblock content %}
+    
+
+    
 </body>
 
 </html>
