@@ -4,9 +4,11 @@ from .models import Project, Skill ,Contact_me
 def home(request):
     projects = Project.objects.all()
     contacts = Contact_me.objects.all()
+    skills = Skill.objects.all()
     context = {
         'projects': projects,
-        'contacts': contacts
+        'contacts': contacts,
+        'skills': skills,
     }
     return render(request, 'portfolio/home.html', context)
 

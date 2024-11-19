@@ -10,6 +10,7 @@ body {
 *{  
     text-decoration: none;
 }
+/* use the animation if need you */
 .animation-background{
     height: 100vh;
 }
@@ -110,17 +111,15 @@ span{
     display: flex;
     align-items: center;
     gap: 300px;
-    margin-top: 40px;
+   
 
 }
 /* contact Style */
 .contact-head{
     text-align: center;
-      
     color: white;
     font-weight: bold;
     padding-top: 50px;
-     
     font-size: 2rem;
     margin-left: 25%;
     border-bottom: 3px solid #ffdd00;
@@ -133,7 +132,7 @@ span{
     padding: 20px;
     overflow: hidden;
 }
-.section {
+.sections {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -141,10 +140,10 @@ span{
     padding: 20px 0;
     animation: appear linear;
     animation-timeline: view();
-    animation-range: entry 0% ;
-    
+    animation-range: entry 0% ; 
 }  
-
+ 
+ 
 @keyframes appear{
     from {
         opacity: 0;
@@ -156,7 +155,7 @@ span{
     }
 }
     
-.section img {
+.sections img {
     height: 100%;
     width: 100%;
 }
@@ -202,11 +201,16 @@ span{
                 0 0 100px #03e9f4;
     -webkit-box-reflect: below 1px linear-gradiant(transparent);
 }
-.section:nth-child(even) {
+.sections:nth-child(even) {
     flex-direction: row-reverse;
 }
 .image-content {
-    width: 50%;
+    width: 44%;
+    transition: 1s;
+}
+.image-content:hover{
+    transform: scale(1.3);
+    z-index: 2;
 }
 @media (max-width: 768px) {
     .nav-head {
@@ -295,7 +299,10 @@ span{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
+#particles-js{
+    height: 100vh;
+    width: 100%;
+}
 .about-content p{
     /*border-inline-start-width: 10px;
     border-color: #ffbb00;*/
@@ -312,11 +319,15 @@ span{
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+ 
     padding: 0 30px;
     position: relative;
     color: #a3c4b2d0;
     border-radius: 50%;
 
+}
+.drop-shadow{
+    filter: drop-shadow(5px 5px 10px #02eeff);
 }
 .about-content a::before{
     position: absolute;

@@ -18,12 +18,12 @@
     
     <section id="contact-me ">
         <h2 class="contact-head">Contact me through the platforms listed below</h2>
-        <div class="container ">
+        <div class="container  view ">
             {% for connect in contacts %}
-            <div class="section ">
+            <div class="sections ">
                 <div class="image-content">
                     {% if connect.icon %}
-                    <img src="{{ connect.icon.url }}" alt="{{ connect }} logo" class="platform-icon">
+                    <img src="{{ connect.icon.url }}" alt="{{ connect }} logo" class="platform-icon drop-shadow">
                     {% endif %}
                 </div>
                 <div class="text-content">
@@ -80,9 +80,9 @@
     <div class="pro-head">
         <h2>Projects</h2>  
     </div>
-    <div class="projects-table">
+    <div class="projects-table ">
         {% for project in projects %}
-            <div class="project-item">
+            <div class="project-item mx-auto">
                 {% if project.image %}
                     <img id="project_image" src="{{ project.image.url }}" alt="{{ project.title }}">
                 {% endif %}
@@ -100,12 +100,16 @@
  
 </section>
 <section id="skills">
-    <h2>Skills</h2>
+    <div class="flex items-center justify-center min-h-screen bg-teal-300">
+        <div class="  p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h1 class="text-3xl font-bold text-white text-center mb-6">Skills</h1>
     <ul>
         {% for skill in skills %}
             <li>{{ skill.name }}</li>
         {% endfor %}
     </ul>
+        </div>
+    </div>
 </section>
 
 <section id="contact">
@@ -157,7 +161,7 @@
     
     
                 <div class="text-center">
-                    <button class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition duration-300" type="submit">Send Message</button>
+                    <button class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300" type="submit">Send Message</button>
                 </div>
             </form>
         </div>
@@ -174,7 +178,8 @@
 
         })
     </script>
- 
+  
+
 {% endblock content %}
     
 
