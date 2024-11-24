@@ -130,8 +130,7 @@ span{
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    overflow: hidden;
-}
+ }
 .sections {
     display: flex;
     align-items: center;
@@ -140,7 +139,7 @@ span{
     padding: 20px 0;
     animation: appear linear;
     animation-timeline: view();
-    animation-range: entry 0% ; 
+    animation-range: entry 0%  ; 
 }  
  
  
