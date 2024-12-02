@@ -162,7 +162,6 @@ span{
     width: 100%;
     max-width: 45%;
     margin: 20px;
-
 }
 .text-content h2 {
     font-size: 2rem;
@@ -318,7 +317,6 @@ span{
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
- 
     padding: 0 30px;
     position: relative;
     color: #a3c4b2d0;
@@ -326,7 +324,7 @@ span{
 
 }
 .drop-shadow{
-    filter: drop-shadow(5px 5px 10px #02eeff);
+    filter: drop-shadow(5px 5px 10px #2a9a80);
 }
 .about-content a::before{
     position: absolute;
@@ -480,7 +478,7 @@ span{
     left:0;
     z-index:-1;
     border-radius:12px;
-    background-color:#3d3232;
+    background-color:#35032b;
     height:100%;
     width:100%;
 }
