@@ -110,8 +110,7 @@ span{
 .hero-head{
     display: flex;
     align-items: center;
-    gap: 300px;
-   
+    gap: 250px; 
 
 }
 /* contact Style */
@@ -264,7 +263,7 @@ span{
      
     height: 80vh;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 40px;
     margin-left: 100px;
      
     
@@ -368,7 +367,7 @@ span{
     height: 50vh;
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 .pro-head{
@@ -385,6 +384,8 @@ span{
     position: relative;
     display: flex;
     gap: 30px;
+    height: 120%;
+    width: 100%;
     
 }
 

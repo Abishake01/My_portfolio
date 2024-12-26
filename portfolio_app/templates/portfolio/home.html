@@ -1,271 +1,64 @@
 {% extends 'portfolio/index.html' %}
 {% load static %}
 {% block content %}
-     
-    <section id="hero">
-        <div class="hero-head">
-            <div class="hero-img">
-                <img src="{% static 'image/abi.jpg' %}" alt="Its Me" id="me">
-            </div>
-            <div class="hero-des">
-                <h2>Hello, I'm <span class="auto-type">Abishake</span></h2>
-                <p> I'm a web developer focused on creating </p>
-                <p>dynamic websites.</p>
-            </div>
-        </div>
-    </section>
-     
-    
-    <section id="contact-me ">
-        <h2 class="contact-head">Contact me through the platforms listed below</h2>
-        <div class="container ">
-            {% for connect in contacts %}
-            <div class="sections ">
-                <div class="image-content">
-                    {% if connect.icon %}
-                    <img src="{{ connect.icon.url }}" alt="{{ connect }} logo" class="platform-icon drop-shadow">
-                    {% endif %}
-                </div>
-                <div class="text-content">
-                    <strong>
-                        <a href="{{ connect.link }}"><h2>{{ connect }}</h2></a>
-                    </strong>
-                    <p>{{ connect.description }}</p><br>
-                    <a href="{{ connect.link }}" class="check-btn">Check it out now!</a>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </section>
-     
-<section id="about-page">
-    <div class="about-start">
-    <div class="about-container">
-        <div class="about-half">
-            <div class="about-img">
-                <img src="{% static 'image/spiderman.jpg' %}" alt="User_Profile">
-            </div>
-        </div>
-        <div>
-            <div class="about-head">
-                <h2>About</h2>
-            </div>
 
-            <div class="about-content">
-                <h1>Hello I am <strong>Abishake</strong>,</h1>
-                    <h1>but you can call me Abi :)</h1>
-                    
-                    <p>I'm currently pursuing a B.E. in Computer Science Engineering at Jaya Engineering College. I have a passion for building dynamic websites and specialize in web development. My technical skills include Python, HTML, CSS, JavaScript, and Django, and I also have design experience, being familiar with Figma. Along with my studies, I work as a freelance web developer, delivering creative and functional solutions to clients. Coding is not just my profession, but my hobby as well, and I am always eager to learn and improve.</p>
-                    <br>
-                    <div>
-                    <ul>
-                         
-                        <a href="https://github.com/Abishake01"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/abishake-t-835428257/"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/abi_shake45?igsh=MXJreHptem51MXppZw=="><i class="fa-brands fa-square-instagram"></i></a>
-                        <a href="https://www.facebook.com/abishake.abishake.7758?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://x.com/abishake381?s=09"><i class="fa-brands fa-square-x-twitter"></i></a>
-                         
-                    </ul><br>
-                    
-                </div>
-            </div>
-        </div>
-        </div>
+<section id="hero">
+  <div class="hero-head">
+    <div class="hero-des">
+      <h2>Hi There!🖐️, <br>I'm <b style=" color: cyan;">Abishake</b> <br><span class="auto-type">Developer</span></h2>
+
     </div>
-</section>
- 
-<section id="projects">
-    <div class="project-container">    
-    <div class="pro-head">
-        <h2>Projects</h2>  
+    <div class="hero-img">
+      <dotlottie-player src="https://lottie.host/b223c62c-7cac-4364-952e-2444bb2c4f0a/oFx1i3djKh.lottie"
+        background="transparent" speed="1" style="width: 500px; height: 500px; margin-bottom: 50px; " loop autoplay></dotlottie-player>
     </div>
-    <div class="projects-table ">
-        {% for project in projects %}
-            <div class="project-item mx-auto">
-                {% if project.image %}
-                    <img id="project_image" src="{{ project.image.url }}" alt="{{ project.title }}">
-                {% endif %}
-                <br>
-                <h3><strong>{{ project.title }}</strong></h3>
-                <p>{{ project.description }}</p>
-                {% if project.project_url %}
-                <a href="{{ project.project_url }}" target="_blank"> <button class="btn">View Project</button></a>
-                {% endif %}
-                
-            </div>
-        {% endfor %}
-    </div>
-</div> 
- 
-</section>
-<br><br><br><br><br>
-<section id="skills">
-    <div class="flex items-center justify-center min-h-screen bg-teal-300">
-        <div class="  p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h1 class="text-3xl font-bold text-white text-center mb-6">Skills</h1>
-    <ul>
-        {% for skill in skills %}
-            <li>{{ skill.name }}</li>
-        {% endfor %}
-    </ul>
-    <table align="center">
-        <tr>
-           <td align="center" width="96">
-            <a href="#Abishake01">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" width="48" height="48" alt="Python" />
-            </a>
-            <br>Python
-          </td>
-          <td align="center" width="96">
-            <a href="#Abishake01">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png" width="48" height="48" alt="JavaScript" />
-            </a>
-            <br>JavaScript
-          </td>
-          <td align="center" width="96">
-            <a href="#Abishake01">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1024px-HTML5_logo_and_wordmark.svg.png" width="48" height="48" alt="Html" />
-            </a>
-            <br>Html
-          </td>
-           <td align="center" width="96">
-            <a href="#Abishake01">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flutter_logo.svg" width="48" height="48" alt="Flutter" />
-            </a>
-            <br>Flutter
-          </td>
-        </tr>
-        <tr>
-          <td align="center" width="96"> 
-            <a href="#Abishake01" >
-              <img src="https://img.icons8.com/color/452/c-programming.png" width="48" height="48" alt="C" />
-            </a>
-            <br>C lang
-          </td>
-       
-         <td align="center" width="96">
-            <a href="#Abishake01" >
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/1200px-Git_icon.svg.png" width="48" height="48" alt="Git" />
-            </a>
-            <br>Git
-          </td>
-           <td align="center" width="96">
-            <a href="#Abishake01" >
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/726px-CSS3_logo_and_wordmark.svg.png" width="48" height="48" alt="css" />
-            </a>
-            <br>CSS
-          </td>
-           <td align="center" width="96">
-            <a href="#Abishake01">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Dart_logo.png" width="48" height="48" alt="Dart" />
-            </a>
-            <br>Dart
-          </td>
-           
-        </tr>
-         <tr>
-          <td align="center" width="96">
-            <a href="#Abishake01">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png" width="48" height="48" alt="TailWind" />
-            </a>
-            <br>TailWind
-          </td>
-          
-         <td align="center" width="96">
-            <a href="#Abishake01">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="45" height="45" alt="Figma" />
-            </a>
-            <br>Figma
-          </td>
-            <td align="center" width="96">
-            <a href="#Abishake01">
-              <img src="https://cdn.worldvectorlogo.com/logos/django.svg" width="48" height="48" alt="Django" />
-            </a>
-            <br>Django
-          </td>
-          
-        </tr>
-         
-          
-      </table>
-      
-        </div>
-    </div>
+  </div>
 </section>
 
-<section id="contact">
-    
-    <div class="flex items-center justify-center min-h-screen bg-teal-300">
-        <div class="  p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h1 class="text-3xl font-bold text-white text-center mb-6">Contact Me</h1>
-            <form action="{% url 'contact' %}" method="POST" class="space-y-4">
-                {% csrf_token %}
-                <div>
-                    <label class="block text-sm font-medium text-blue-50" for="name">Name</label>
-                    <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
-                           type="text" 
-                           id="name" 
-                           name="name" 
-                           placeholder="Your Name" 
-                           autocomplete="name">   
-                </div>
-    
-                <div>
-                    <label class="block text-sm font-medium text-blue-50" for="phone">Phone Number</label>
-                    <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
-                           type="tel" 
-                           id="phone" 
-                           name="phone" 
-                           placeholder="Your Phone Number" 
-                           autocomplete="tel">   
-                </div>
-    
-                <div>
-                    <label class="block text-sm font-medium text-blue-50" for="email">E-mail</label>
-                    <input class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
-                           type="email" 
-                           id="email" 
-                           name="email" 
-                           placeholder="Your E-mail" 
-                           autocomplete="email">   
-                </div>
-    
-                <div>
-                    <label class="block text-sm font-medium text-blue-50" for="message">Message</label>
-                    <textarea class="w-full mt-1 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500" 
-                              id="message" 
-                              name="message" 
-                              rows="4" 
-                              placeholder="Your Message" 
-                              autocomplete="off"></textarea>   
-                </div>
-    
-    
-                <div class="text-center">
-                    <button class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition duration-300" type="submit">Send Message</button>
-                </div>
-            </form>
-        </div>
+
+<section id="contact-me ">
+  <h2 class="contact-head">Contact me through the platforms listed below</h2>
+  <div class="container ">
+    {% for connect in contacts %}
+    <div class="sections ">
+      <div class="image-content">
+        {% if connect.icon %}
+        <img src="{{ connect.icon.url }}" alt="{{ connect }} logo" class="platform-icon drop-shadow">
+        {% endif %}
+      </div>
+      <div class="text-content">
+        <strong>
+          <a href="{{ connect.link }}">
+            <h2>{{ connect }}</h2>
+          </a>
+        </strong>
+        <p>{{ connect.description }}</p><br>
+        <a href="{{ connect.link }}" class="check-btn">Check it out now!</a>
+      </div>
     </div>
+    {% endfor %}
+  </div>
 </section>
 
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <script>
-        var typed = new Typed(".auto-type", {
-            strings: ['Programmer', 'Designer', 'Abishake'],
-            typeSpeed: 150,
-            bsckSpeed: 150,
-            looped: true
 
-        })
-    </script>
-  
+
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+<script>
+  var typed = new Typed(".auto-type", {
+    strings: ['Freelancer', 'Programmer', 'Designer', 'Web Developer'],
+    typeSpeed: 250,
+    bsckSpeed: 250,
+    looped: true
+
+  })
+</script>
+
 
 {% endblock content %}
-    
 
-    
+
+
 </body>
 
 </html>

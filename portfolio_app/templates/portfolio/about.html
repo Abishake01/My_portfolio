@@ -4,45 +4,174 @@
 
 <section id="about-page">
     <div class="about-start">
-    <div class="about-container">
-        <div class="about-half">
-            <div class="about-img">
-                <img src="{% static 'image/spiderman.jpg' %}" alt="User_Profile">
-            </div>
-        </div>
-        <div>
-            <div class="about-head">
-                <h2>About</h2>
-            </div>
-
-            <div class="about-content">
-                <h1>Hello I am <strong>Abishake</strong>,</h1>
-                    <h1>but you can call me Abi :)</h1>
-                    
-                    <p>I'm currently pursuing a B.E. in Computer Science Engineering at Jaya Engineering College. I have a passion for building dynamic websites and specialize in web development. My technical skills include Python, HTML, CSS, JavaScript, and Django, and I also have design experience, being familiar with Figma. Along with my studies, I work as a freelance web developer, delivering creative and functional solutions to clients. Coding is not just my profession, but my hobby as well, and I am always eager to learn and improve.</p>
-                    <br>
-                    <div>
-                    <ul>
-                         
-                        <a href="https://github.com/Abishake01"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/abishake-t-835428257/"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/abi_shake45?igsh=MXJreHptem51MXppZw=="><i class="fa-brands fa-square-instagram"></i></a>
-                        <a href="https://www.facebook.com/abishake.abishake.7758?mibextid=ZbWKwL"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://x.com/abishake381?s=09"><i class="fa-brands fa-square-x-twitter"></i></a>
-                         
-                    </ul><br>
-                    
+        <div class="about-container">
+            <div class="about-half">
+                <div class="about-img">
+                    <img src="{% static 'image/me2.jpg' %}" alt="User_Profile">
                 </div>
             </div>
-        </div>
+            <div>
+                <div class="about-head">
+                    <h2>About</h2>
+                </div>
+
+                <div class="about-content">
+                    <h1>Hello I am <strong>Abishake</strong>,</h1>
+                    <h1>but you can call me Abi :)</h1>
+
+                    <p>I'm currently pursuing a B.E. in Computer Science Engineering at Jaya Engineering College. I have
+                        a passion for building dynamic websites and specialize in web development. My technical skills
+                        include Python, HTML, CSS, JavaScript, and Django, and I also have design experience, being
+                        familiar with Figma. Along with my studies, I work as a freelance web developer, delivering
+                        creative and functional solutions to clients. Coding is not just my profession, but my hobby as
+                        well, and I am always eager to learn and improve.</p>
+                    <br>
+                    <div>
+                        <ul>
+
+                            <a href="https://github.com/Abishake01"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/abishake-t-835428257/"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/abi_shake45?igsh=MXJreHptem51MXppZw=="><i
+                                    class="fa-brands fa-square-instagram"></i></a>
+                            <a href="https://www.facebook.com/abishake.abishake.7758?mibextid=ZbWKwL"><i
+                                    class="fa-brands fa-facebook"></i></a>
+                            <a href="https://x.com/abishake381?s=09"><i class="fa-brands fa-square-x-twitter"></i></a>
+
+                        </ul><br>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="about-second">
         <h2>
-            
+
         </h2>
     </div>
-    
+
 </section>
- 
+
+<section id="skills">
+    <div class="flex items-center justify-center min-h-screen bg-teal-300">
+        <div class="  p-8 rounded-lg shadow-lg w-full max-w-md">
+            <h1 class="text-3xl font-bold text-white text-center mb-6">Skills</h1>
+            <ul>
+                {% for skill in skills %}
+                <li>{{ skill.name }}</li>
+                {% endfor %}
+            </ul>
+            <table align="center">
+                <tr>
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
+                                width="48" height="48" alt="Python" />
+                        </a>
+                        <br>Python
+                    </td>
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png"
+                                width="48" height="48" alt="JavaScript" />
+                        </a>
+                        <br>JavaScript
+                    </td>
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1024px-HTML5_logo_and_wordmark.svg.png"
+                                width="48" height="48" alt="Html" />
+                        </a>
+                        <br>Html
+                    </td>
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flutter_logo.svg" width="48"
+                                height="48" alt="Flutter" />
+                        </a>
+                        <br>Flutter
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://img.icons8.com/color/452/c-programming.png" width="48" height="48"
+                                alt="C" />
+                        </a>
+                        <br>C lang
+                    </td>
+
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/1200px-Git_icon.svg.png"
+                                width="48" height="48" alt="Git" />
+                        </a>
+                        <br>Git
+                    </td>
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/726px-CSS3_logo_and_wordmark.svg.png"
+                                width="48" height="48" alt="css" />
+                        </a>
+                        <br>CSS
+                    </td>
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Dart_logo.png" width="48"
+                                height="48" alt="Dart" />
+                        </a>
+                        <br>Dart
+                    </td>
+
+                </tr>
+                <tr>
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png"
+                                width="48" height="48" alt="TailWind" />
+                        </a>
+                        <br>TailWind
+                    </td>
+
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="45"
+                                height="45" alt="Figma" />
+                        </a>
+                        <br>Figma
+                    </td>
+                    <td align="center" width="96">
+                        <a href="#Abishake01">
+                            <img src="https://cdn.worldvectorlogo.com/logos/django.svg" width="48" height="48"
+                                alt="Django" />
+                        </a>
+                        <br>Django
+
+                    </td>
+
+                </tr>
+
+
+            </table>
+
+        </div>
+    </div>
+</section>
+<section>
+    <h1>Tools Used</h1>
+    <p align='center'>
+        <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Abishake01&show_icons=true&locale=en&layout=compact&bg_color=ffffff&title_color=000000&text_color=000000&icon_color=000000"
+            alt="Abishake01" />
+    </p>
+    ![snake
+    gif](https://raw.githubusercontent.com/NagiPragalathan/NagiPragalathan/eb8842c58262cfc3019e5c91b9202948fe437254/github-contribution-grid-snake.svg)
+
+</section>
+<section id="Abishake01">
+    <a href="#Abishake01-title">
+        <img src="https://github-readme-stats.vercel.app/api?username=Abishake01&show_icons=true&theme=react&count_private=true&include_all_commits=true"
+            alt="Abishake01" align="right" />
+    </a>
+</section>
 {% endblock content %}
