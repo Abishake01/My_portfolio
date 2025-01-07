@@ -78,13 +78,28 @@ WSGI_APPLICATION = 'portfolio_web.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
+from urllib.parse import quote_plus
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'Portfolio',
+        'ENFORCE_SCHEMA': False,
+        'CLIENT': {
+            'host': f'mongodb+srv://{quote_plus("Abi")}:{quote_plus("Portfolio@123")}@cluster0.exxds.mongodb.net/',
+            'port': 27017,
+            'authSource': 'admin',
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
