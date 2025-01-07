@@ -104,7 +104,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 #adminport
-#user:abi1 pwd:Abi@123
+#user:abi pwd:Abi@123
 
 AUTH_PASSWORD_VALIDATORS = [
     {

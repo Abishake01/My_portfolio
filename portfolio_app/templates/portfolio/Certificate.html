@@ -1,0 +1,13 @@
+{% extends 'portfolio/index.html' %}
+{% block content %}
+<div class="certificates">
+    {% for certificate in certificates %}
+        <div class="certificate">
+            <img src="{{ certificate.image.url }}" alt="{{ certificate.title }}">
+            <p>{{ certificate.description }}</p>
+            <a href="{{ certificate }}" target="_blank">View Certificate</a>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}

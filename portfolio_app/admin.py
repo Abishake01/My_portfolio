@@ -3,4 +3,4 @@ from .models import *
 
 admin.site.register(Project)
 admin.site.register(Skill)
-admin.site.register(Contact_me)
+admin.site.register(Certificate)

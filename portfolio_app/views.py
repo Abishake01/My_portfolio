@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from .models import Project, Skill ,Contact_me
+from .models import Project, Skill , Certificate
 
 def home(request):
     projects = Project.objects.all()
-    contacts = Contact_me.objects.all()
+    certificate = Certificate.objects.all()
     skills = Skill.objects.all()
     context = {
         'projects': projects,
-        'contacts': contacts,
+        'contacts': certificate,
         'skills': skills,
     }
     return render(request, 'portfolio/home.html', context)
@@ -26,7 +26,8 @@ def skill(request):
     skills = Skill.objects.all()
     context = {
         'skills': skills,
+    
     }
     return render(request,'portfolio/skills.html',context)
-def contact(request):
-    return render(request,'portfolio/contact.html')
+def Certificate(request):
+    return render(request,'portfolio/Certificate.html')
