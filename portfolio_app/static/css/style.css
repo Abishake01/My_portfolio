@@ -46,8 +46,6 @@ nav {
     flex-wrap: wrap;
     padding: 0 30px;
     
-   
-    
 }
 .nav-head{
     display: flex;
@@ -56,9 +54,8 @@ nav {
     
 }
 .head{
-    font-size: large;
-    
-    
+    font-size: medium;
+
 }
 header nav ul {
     display: flex;
