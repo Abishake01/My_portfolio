@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-b!i89cd*x8vfxsbdbi2)o)--j!@a+@44+@fb+3!^2a+qh#a=d-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://abishake.onrender.com', 'abishake.onrender.com', 'localhost']
  
 
 # Application definition
