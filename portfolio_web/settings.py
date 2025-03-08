@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,9 +28,8 @@ SECRET_KEY = 'django-insecure-b!i89cd*x8vfxsbdbi2)o)--j!@a+@44+@fb+3!^2a+qh#a=d-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
-
+ALLOWED_HOSTS = []
+ 
 
 # Application definition
 
@@ -39,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    'corsheaders', 
     'portfolio_app',
     'fontawesomefree'
 ]
@@ -46,6 +49,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -86,17 +90,19 @@ DATABASES = {
     }
 }
 '''
-from urllib.parse import quote_plus
-
+ 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'Portfolio',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': f'mongodb+srv://{quote_plus("Abi")}:{quote_plus("Portfolio@123")}@cluster0.exxds.mongodb.net/',
-            'port': 27017,
-            'authSource': 'admin',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'defaultdb',
+        'USER': 'avnadmin',
+        'PASSWORD': 'AVNS_NbRlPyeRUDkTupOYYB-',
+        'HOST': 'portfolio-abishake0904-1af4.d.aivencloud.com',  # This should be the correct Railway MySQL host
+        'PORT': '15093',  # Default MySQL port is 3306
+        'OPTIONS': {
+            'ssl': {
+                'ssl': {'ca': '/path/to/ca.pem'} 
+            },
         }
     }
 }

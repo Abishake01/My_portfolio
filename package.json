@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "tailwindcss": "^3.3.3"
-  },
-  "dependencies": {
-    "mongodb": "^6.12.0"
-  }
-}
