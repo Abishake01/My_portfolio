@@ -13,7 +13,12 @@ def home(request):
     return render(request, 'portfolio/home.html', context)
 
 def about(request):
-    return render(request,'portfolio/about.html')
+    skills = Skill.objects.all()
+    context = {
+        'skills': skills,
+    
+    }
+    return render(request,'portfolio/about.html', context)
  
 
 def project(request):

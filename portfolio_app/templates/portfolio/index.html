@@ -46,15 +46,14 @@
             position: absolute;
             top: 10px;
             left: 0;
-            background: url('{% static "image/image.png" %}');
             animation: snowfall 8s linear infinite;
             height: 100vh;
             width: 100vw;
         }
         
         body {
-            background-image: url('{% static "image/1.png" %}');
-            background-size: cover;
+            background-image: url('{% static "css/1.png" %}');
+            
             font-family: Arial, sans-serif;
         }
     </style>
@@ -62,22 +61,82 @@
 
 <body class="m-0 p-0 bg-gray-800 text-white">
     <header class="w-full top-0 p-0 text-center">
-        <nav class="  flex justify-between items-center flex-wrap px-8">
-            <div class="flex items-center flex-col md:flex-row md:gap-32 lg:gap-64">
-                <div class="text-base">
-                    <h1><a class="inline-block uppercase py-2 px-8 text-white text-xl font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'home' %}">My Portfolio</a></h1>
-                </div>
-                <div class="top-details">
-                    <ul class="flex flex-col md:flex-row justify-center gap-4 md:gap-5">
-                        <li><a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'about' %}">About</a></li>
-                        <li><a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'project' %}">Projects</a></li>
-                        <li><a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'skill' %}">Skills</a></li>
-                        <li><a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'certificate' %}">Certificate</a></li>                        
-                    </ul>
-                </div>
+        <nav class="flex justify-between items-center flex-wrap px-4 py-2 relative">
+          <!-- Logo/Title -->
+          <div class="flex items-center justify-between w-full md:w-auto">
+            <h1>
+              <a class="inline-block uppercase py-2 px-4 text-white text-xl font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'home' %}">
+                My Portfolio
+              </a>
+            </h1>
+            
+            <!-- Hamburger Menu Button (visible only on small screens) -->
+            <div class="md:hidden">
+              <button id="menu-toggle" class="p-2 rounded-md text-white hover:bg-gray-700 focus:outline-none">
+                <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+                <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
             </div>
+          </div>
+          
+          <!-- Navigation Links (hidden on small screens until toggled) -->
+          <div id="menu-items" class="hidden w-full md:flex md:w-auto mt-4 md:mt-0">
+            <ul class="flex flex-col md:flex-row justify-center gap-4 md:gap-5 w-full">
+              <li class="w-full md:w-auto">
+                <a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg w-full md:w-auto" href="{% url 'about' %}">
+                  About
+                </a>
+              </li>
+              <li class="w-full md:w-auto">
+                <a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg w-full md:w-auto" href="{% url 'project' %}">
+                  Projects
+                </a>
+              </li>
+              <li class="w-full md:w-auto">
+                <a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg w-full md:w-auto" href="{% url 'skill' %}">
+                  Skills
+                </a>
+              </li>
+              <li class="w-full md:w-auto">
+                <a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg w-full md:w-auto" href="{% url 'certificate' %}">
+                  Certificate
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
-    </header>
+      </header>
+      
+      <!-- Add this script just before the closing body tag -->
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const menuToggle = document.getElementById('menu-toggle');
+          const menuItems = document.getElementById('menu-items');
+          const hamburgerIcon = document.getElementById('hamburger-icon');
+          const closeIcon = document.getElementById('close-icon');
+          
+          menuToggle.addEventListener('click', function() {
+            menuItems.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+          });
+          
+          // If window resizes to desktop view, ensure menu is visible
+          window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) { // 768px is the md breakpoint in Tailwind
+              menuItems.classList.remove('hidden');
+            } else {
+              if (!hamburgerIcon.classList.contains('hidden')) {
+                menuItems.classList.add('hidden');
+              }
+            }
+          });
+        });
+      </script>
   
    {% block content %}
    
