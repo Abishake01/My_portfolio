@@ -9,8 +9,6 @@
             <!-- Image Container - Full width on mobile -->
             <div class="w-full md:w-1/2 flex justify-center items-center">
                 <div class="relative w-full max-w-sm mx-auto bg-blue-200 rounded-lg shadow-lg md:w-1/2 transform duration-500 hover:translate-x-5 hover:-translate-y-5 pointer-events-none">
-                    <!-- Background decorative element -->
-                     
                     <!-- Main image -->
                     <img src="{% static 'image/me2.jpg' %}" alt="User_Profile" 
                          class="w-full h-auto rounded-lg shadow-lg transition-all duration-500 hover:-translate-x-2 hover:translate-y-2 md:hover:-translate-x-4 md:hover:translate-y-4 pointer-events-auto">
@@ -33,15 +31,13 @@
 
                     <p class="text-white text-base md:text-lg text-left mt-6">
                         I'm currently pursuing a B.E. in Computer Science Engineering at Jaya Engineering College. I have
-                        a passion for building dynamic websites and specialize in web development. My technical skills
-                        include Python, HTML, CSS, JavaScript, and Django, and I also have design experience, being
-                        familiar with Figma. Along with my studies, I work as a freelance web developer, delivering
+                        a passion for building dynamic websites and specialize in web development. Along with my studies, I work as a freelance web developer, delivering
                         creative and functional solutions to clients. Coding is not just my profession, but my hobby as
                         well, and I am always eager to learn and improve.
                     </p>
                     
                     <!-- Social Icons -->
-                    <div class="mt-8">
+                    <div class="mt-8 md:ml-28 ml-12">
                         <ul class="flex flex-wrap gap-6 md:gap-8">
                             <a href="https://github.com/Abishake01" class="text-3xl text-white relative rounded-full hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400 transition-all duration-500 group">
                                 <i class="fa-brands fa-github"></i>
@@ -72,13 +68,13 @@
 </section>
 
 <!-- Skills Section -->
-<section id="skills" class="min-h-screen  flex items-center justify-center px-4">
-    <div class="p-8 rounded-lg shadow-lg bg-white/10 backdrop-blur-md w-full max-w-4xl">
+<section id="skills" class="mt-20 flex items-center justify-center px-4">
+    <div class="p-8 rounded-lg shadow-lg  w-full max-w-4xl">
       <h1 class="text-4xl font-extrabold text-white text-center mb-8 drop-shadow-lg">My Skills</h1>
       
       <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
         {% for skill in skills %}
-        <div class="group relative p-4 bg-white/20 backdrop-blur-lg rounded-xl shadow-lg hover:scale-105 hover:bg-white/30 transition-transform duration-300 cursor-pointer">
+        <div class="group relative p-4     rounded-xl shadow-lg hover:scale-105 hover:bg-white/30 transition-transform duration-300 cursor-pointer">
           <img src="{{ skill.image.url }}" alt="{{ skill.name }}" class="w-16 h-16 mx-auto transition-transform duration-300 group-hover:rotate-12">
           <p class="text-white text-center mt-2 text-lg font-semibold">{{ skill.name }}</p>
           <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
