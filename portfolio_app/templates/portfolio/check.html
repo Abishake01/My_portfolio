@@ -1,0 +1,111 @@
+<div class="w-screen h-screen flex justify-center items-center bg-black dark:bg-white ">
+    <h1 class="relative w-full xl:text-9xl md:text-8xl text-5xl sm:tracking-[17px] tracking-[10px] uppercase text-center leading-[0.70em] outline-none animate-dimlight box-reflect">
+      Abishake</h1>
+  </div>
+  
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          keyframes: {
+            dimlight: {
+              '0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92%': {
+                color: '#0e3742',
+                boxShadow: 'none',
+              },
+              '18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100%': {
+                color: '#fff',
+                textShadow: '0 0 10px #03bcf4',
+              },
+            },
+          },
+          animation: {
+            dimlight: 'dimlight 5s infinite',
+          },
+        },
+      },
+      plugins: [
+        function({
+          addUtilities
+        }) {
+          addUtilities({
+            '.box-reflect': {
+              '-webkit-box-reflect': 'below 1px linear-gradient(transparent, #0004)',
+            },
+          });
+        },
+      ],
+    }
+  </script>
+
+<div class="relative">
+    <div class="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-200 to-blue-200">
+      <h2 class="text-4xl font-bold">The First slide</h2>
+      <p class="mt-2">Scroll Down for next slide</p>
+    </div>
+    <div class="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-indigo-800 to-purple-800 text-white">
+      <h2 class="text-4xl font-bold">The Second slide</h2>
+      <p class="mt-2">Scroll Down for next slide</p>
+    </div>
+    <div class="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-purple-800 to-pink-800 text-white">
+      <h2 class="text-4xl font-bold">The Third slide</h2>
+      <p class="mt-2">Scroll Down</p>
+    </div>
+    <div class="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-blue-200 to-indigo-100 text-black">
+      <h2 class="text-4xl font-bold">The Fourth slide</h2>
+    </div>
+  </div>
+  
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+
+  <div class="flex justify-center items-center h-screen p-20 bg-yellow-50">
+  <div class="bg-blue-200 rounded-lg shadow-lg w-full md:w-1/2 transform duration-500 hover:translate-x-5 hover:-translate-y-5 pointer-events-none">
+    <img class="rounded-lg shadow-lg transform duration-500 hover:-translate-x-10 hover:translate-y-10 pointer-events-auto" src="https://images.unsplash.com/photo-1604489141828-ca67d245c447">
+  </div>
+</div>
+
+
+<div class="gallery">
+    <img src="https://picsum.photos/id/582/400/400" alt="a wolf">
+    <img src="https://picsum.photos/id/1074/400/400" alt="a lioness">
+  </div>
+  <style>
+    .gallery {
+  --g: 8px; /* the gap */
+  
+  display: grid;
+  clip-path: inset(1px); /* to avoid visual glitchs */
+}
+.gallery > img {
+  --_p: calc(-1*var(--g));
+  grid-area: 1/1;
+  width: 350px; /* control the size */
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: .4s .1s;
+}
+.gallery > img:first-child {
+  clip-path: polygon(0 0, calc(100% + var(--_p)) 0 , 0 calc(100% + var(--_p)))
+}
+.gallery > img:last-child {
+  clip-path: polygon(100% 100%, 100% calc(0% - var(--_p)), calc(0% - var(--_p)) 100%)
+}
+.gallery:hover > img:last-child,
+.gallery:hover > img:first-child:hover{
+  --_p: calc(50% - var(--g));
+}
+.gallery:hover > img:first-child,
+.gallery:hover > img:first-child:hover + img{
+  --_p: calc(-50% - var(--g));
+}
+
+
+
+
+ 
+  </style>

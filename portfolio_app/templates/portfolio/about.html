@@ -2,173 +2,82 @@
 {% load static %}
 {% block content %}
 
-<section id="about-page">
+<!-- About Page Section -->
+<section id="about-page" class="sticky top-0 h-screen flex flex-col items-center justify-center mt-10 ml-0 text-center md:ml-24">
     <div class="about-start">
-        <div class="about-container">
-            <div class="about-half">
-                <div class="about-img">
-                    <img src="{% static 'image/me2.jpg' %}" alt="User_Profile">
+        <div class="flex flex-col md:flex-row" style="background-image: url("{% static 'image/1.png' %}"); background-size: cover;">
+            <div class="md:w-1/2">
+                <div class=" mx-auto bg-blue-200 rounded-lg shadow-lg w-full md:w-1/2 transform duration-500 hover:translate-x-5 hover:-translate-y-5 pointer-events-none">
+                    <img src="{% static 'image/me2.jpg' %}" alt="User_Profile" class="w-full rounded-lg shadow-lg transform duration-500 hover:-translate-x-10 hover:translate-y-10 pointer-events-auto">
                 </div>
             </div>
-            <div>
-                <div class="about-head">
+            <div class="md:w-1/2 px-4 md:px-0">
+                <div class="text-4xl font-bold text-yellow-300 mr-0 md:mr-48 mt-6 md:mt-0">
                     <h2>About</h2>
                 </div>
 
-                <div class="about-content">
-                    <h1>Hello I am <strong>Abishake</strong>,</h1>
-                    <h1>but you can call me Abi :)</h1>
+                <div class="mr-4 md:mr-24">
+                    <h1 class="text-2xl md:text-3xl uppercase bg-gradient-to-r from-pink-500 via-cyan-400 to-yellow-300 bg-clip-text text-transparent mr-0 md:mr-20">Hello I am <strong>Abishake</strong>,</h1>
+                    <h1 class="text-2xl md:text-3xl uppercase bg-gradient-to-r from-pink-500 via-cyan-400 to-yellow-300 bg-clip-text text-transparent mr-0 md:mr-20">but you can call me Abi :)</h1>
 
-                    <p>I'm currently pursuing a B.E. in Computer Science Engineering at Jaya Engineering College. I have
+                    <p class="text-white text-base md:text-xl text-left mt-10 ml-0 md:ml-2">
+                        I'm currently pursuing a B.E. in Computer Science Engineering at Jaya Engineering College. I have
                         a passion for building dynamic websites and specialize in web development. My technical skills
                         include Python, HTML, CSS, JavaScript, and Django, and I also have design experience, being
                         familiar with Figma. Along with my studies, I work as a freelance web developer, delivering
                         creative and functional solutions to clients. Coding is not just my profession, but my hobby as
-                        well, and I am always eager to learn and improve.</p>
+                        well, and I am always eager to learn and improve.
+                    </p>
                     <br>
                     <div>
-                        <ul>
-
-                            <a href="https://github.com/Abishake01"><i class="fa-brands fa-github"></i></a>
-                            <a href="https://www.linkedin.com/in/abishake-t-835428257/"><i
-                                    class="fa-brands fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/abi_shake45?igsh=MXJreHptem51MXppZw=="><i
-                                    class="fa-brands fa-square-instagram"></i></a>
-                            <a href="https://www.facebook.com/abishake.abishake.7758?mibextid=ZbWKwL"><i
-                                    class="fa-brands fa-facebook"></i></a>
-                            <a href="https://x.com/abishake381?s=09"><i class="fa-brands fa-square-x-twitter"></i></a>
-
+                        <ul class="flex space-x-8 px-8 justify-start">
+                            <a href="https://github.com/Abishake01" class=" text-3xl relative rounded-full hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400 transition-all duration-500 group">
+                                <i class="fa-brands fa-github"></i>
+                                <span class="absolute inset-0  rounded-full scale-90 group-hover:blur-sm group-hover:scale-110 -z-10 transition-all duration-500"></span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/abishake-t-835428257/" class=" text-3xl relative rounded-full hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400 transition-all duration-500 group">
+                                <i class="fa-brands fa-linkedin"></i>
+                                <span class="absolute inset-0  rounded-full scale-90 group-hover:blur-sm group-hover:scale-110 -z-10 transition-all duration-500"></span>
+                            </a>
+                            <a href="https://www.instagram.com/abi_shake45?igsh=MXJreHptem51MXppZw==" class=" text-3xl relative rounded-full hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400 transition-all duration-500 group">
+                                <i class="fa-brands fa-square-instagram"></i>
+                                <span class="absolute inset-0  rounded-full scale-90 group-hover:blur-sm group-hover:scale-110 -z-10 transition-all duration-500"></span>
+                            </a>
+                            <a href="https://www.facebook.com/abishake.abishake.7758?mibextid=ZbWKwL" class=" text-3xl relative rounded-full hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400 transition-all duration-500 group">
+                                <i class="fa-brands fa-facebook"></i>
+                                <span class="absolute inset-0  rounded-full scale-90 group-hover:blur-sm group-hover:scale-110 -z-10 transition-all duration-500"></span>
+                            </a>
+                            <a href="https://x.com/abishake381?s=09" class=" text-3xl relative rounded-full hover:text-cyan-400 hover:shadow-lg hover:shadow-cyan-400 transition-all duration-500 group">
+                                <i class="fa-brands fa-square-x-twitter"></i>
+                                <span class="absolute inset-0  rounded-full scale-90 group-hover:blur-sm group-hover:scale-110 -z-10 transition-all duration-500"></span>
+                            </a>
                         </ul><br>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="about-second">
-        <h2>
-
-        </h2>
+        <h2 class="text-4xl font-bold text-yellow-300"></h2>
     </div>
-
 </section>
 
-<section id="skills">
-    <div class="flex items-center justify-center min-h-screen bg-teal-300">
-        <div class="  p-8 rounded-lg shadow-lg w-full max-w-md">
-            <h1 class="text-3xl font-bold text-white text-center mb-6">Skills</h1>
-            <ul>
-                {% for skill in skills %}
-                <li>{{ skill.name }}</li>
-                {% endfor %}
-            </ul>
-            <table align="center">
-                <tr>
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png"
-                                width="48" height="48" alt="Python" />
-                        </a>
-                        <br>Python
-                    </td>
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/1024px-Unofficial_JavaScript_logo_2.svg.png"
-                                width="48" height="48" alt="JavaScript" />
-                        </a>
-                        <br>JavaScript
-                    </td>
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1024px-HTML5_logo_and_wordmark.svg.png"
-                                width="48" height="48" alt="Html" />
-                        </a>
-                        <br>Html
-                    </td>
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Flutter_logo.svg" width="48"
-                                height="48" alt="Flutter" />
-                        </a>
-                        <br>Flutter
-                    </td>
-                </tr>
-                <tr>
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://img.icons8.com/color/452/c-programming.png" width="48" height="48"
-                                alt="C" />
-                        </a>
-                        <br>C lang
-                    </td>
-
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/1200px-Git_icon.svg.png"
-                                width="48" height="48" alt="Git" />
-                        </a>
-                        <br>Git
-                    </td>
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/726px-CSS3_logo_and_wordmark.svg.png"
-                                width="48" height="48" alt="css" />
-                        </a>
-                        <br>CSS
-                    </td>
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/c6/Dart_logo.png" width="48"
-                                height="48" alt="Dart" />
-                        </a>
-                        <br>Dart
-                    </td>
-
-                </tr>
-                <tr>
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/2048px-Tailwind_CSS_Logo.svg.png"
-                                width="48" height="48" alt="TailWind" />
-                        </a>
-                        <br>TailWind
-                    </td>
-
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" width="45"
-                                height="45" alt="Figma" />
-                        </a>
-                        <br>Figma
-                    </td>
-                    <td align="center" width="96">
-                        <a href="#Abishake01">
-                            <img src="https://cdn.worldvectorlogo.com/logos/django.svg" width="48" height="48"
-                                alt="Django" />
-                        </a>
-                        <br>Django
-
-                    </td>
-
-                </tr>
-
-
-            </table>
-
+<!-- Skills Section -->
+<section id="skills" class="sticky top-0 h-screen flex flex-col items-center justify-center bg-gradient-to-b from-gray-800 to-black">
+    <div class="p-8 rounded-lg shadow-lg bg-white/10 backdrop-blur-md w-full max-w-4xl">
+        <h1 class="text-4xl font-extrabold text-white text-center mb-8 drop-shadow-lg">My Skills</h1>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
+          {% for skill in skills %}
+          <div class="group relative p-4 bg-white/20 backdrop-blur-lg rounded-xl shadow-lg hover:scale-105 hover:bg-white/30 transition-transform duration-300 cursor-pointer">
+            <img src="{{ skill.image.url }}" alt="{{ skill.name }}" class="w-16 h-16 mx-auto transition-transform duration-300 group-hover:rotate-12">
+            <p class="text-white text-center mt-2 text-lg font-semibold">{{ skill.name }}</p>
+            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+          </div>
+          {% endfor %}
         </div>
-    </div>
+    
+      </div>
 </section>
-<section>
-    <h1>Tools Used</h1>
-    <p align='center'>
-        <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Abishake01&show_icons=true&locale=en&layout=compact&bg_color=ffffff&title_color=000000&text_color=000000&icon_color=000000"
-            alt="Abishake01" />
-    </p>
-</section>
-<section id="Abishake01">
-    <a href="#Abishake01-title">
-        <img src="https://github-readme-stats.vercel.app/api?username=Abishake01&show_icons=true&theme=react&count_private=true&include_all_commits=true"
-            alt="Abishake01" align="right" />
-    </a>
-</section>
+ 
 {% endblock content %}

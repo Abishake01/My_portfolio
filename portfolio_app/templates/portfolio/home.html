@@ -2,45 +2,43 @@
 {% load static %}
 {% block content %}
 
-<section id="hero">
-  <div class="hero-head">
-    <div class="hero-des">
-      <h2>Hi There!🖐️, <br>I'm <b style=" color: cyan;">Abishake</b> <br><span class="auto-type">Developer</span></h2>
-
+<!-- Hero Section -->
+<section id="hero" class="min-h-screen flex items-center justify-center text-white" >
+  <div class="flex flex-col md:flex-row items-center gap-6 md:gap-16 lg:gap-64">
+    <div class="hero-des text-center md:text-left">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold">Hi There!&#128400;, <br>I'm <b class="text-cyan-400">Abishake</b> <br><span class="auto-type text-yellow-400">Developer</span></h2>
     </div>
     <div class="hero-img">
       <dotlottie-player src="https://lottie.host/b223c62c-7cac-4364-952e-2444bb2c4f0a/oFx1i3djKh.lottie"
-        background="transparent" speed="1" style="width: 500px; height: 500px; margin-bottom: 50px; " loop autoplay></dotlottie-player>
+        background="transparent" speed="1" style="width: 500px; height: 500px; md:width: 400px; md:height: 400px; lg:width: 500px; lg:height: 500px; margin-bottom: 50px;" loop autoplay></dotlottie-player>
     </div>
   </div>
 </section>
 
-
-<section id="contact-me ">
-  <h2 class="contact-head">Contact me through the platforms listed below</h2>
-  <div class="container ">
+<!-- Contact Section -->
+<section id="contact-me" class="py-12">
+  <h2 class="text-center text-2xl md:text-3xl font-bold text-white pb-12 pt-6 mx-auto md:w-3/4 border-b-4 border-yellow-400">Contact me through the platforms listed below</h2>
+  <div class="max-w-4xl mx-auto px-4">
     {% for connect in contacts %}
-    <div class="sections ">
-      <div class="image-content">
+    <div class="flex flex-col md:flex-row items-center justify-between py-8 animate-appear" style="animation-timeline: view(); animation-range: entry 0%;">
+      <div class="w-full md:w-5/12 transition-transform duration-1000 hover:scale-125 hover:z-10">
         {% if connect.icon %}
-        <img src="{{ connect.icon.url }}" alt="{{ connect }} logo" class="platform-icon drop-shadow">
+        <img src="{{ connect.icon.url }}" alt="{{ connect }} logo" class="w-full filter drop-shadow-lg">
         {% endif %}
       </div>
-      <div class="text-content">
+      <div class="w-full md:w-1/2 p-6">
         <strong>
           <a href="{{ connect.link }}">
-            <h2>{{ connect }}</h2>
+            <h2 class="text-2xl font-bold text-yellow-300 mb-2">{{ connect }}</h2>
           </a>
         </strong>
-        <p>{{ connect.description }}</p><br>
-        <a href="{{ connect.link }}" class="check-btn">Check it out now!</a>
+        <p class="text-white text-lg leading-relaxed">{{ connect.description }}</p><br>
+        <a href="{{ connect.link }}" class="inline-block font-bold text-cyan-400 border-2 border-cyan-400 py-2 px-6 rounded-lg transition-all duration-300 hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400">Check it out now!</a>
       </div>
     </div>
     {% endfor %}
   </div>
 </section>
-
-
 
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
@@ -50,15 +48,7 @@
     typeSpeed: 150,
     bsckSpeed: 150,
     looped: true
-
   })
 </script>
 
-
 {% endblock content %}
-
-
-
-</body>
-
-</html>

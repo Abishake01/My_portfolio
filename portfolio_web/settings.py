@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-b!i89cd*x8vfxsbdbi2)o)--j!@a+@44+@fb+3!^2a+qh#a=d-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://abishake.onrender.com', 'abishake.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['https://abishake.onrender.com', 'abishake.onrender.com', 'localhost','127.0.0.1']
  
 
 # Application definition
@@ -111,6 +111,7 @@ DATABASES = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 #adminport
 #user:abi pwd:Abi@123
+#db aivencloud mail: abisheck
 
 AUTH_PASSWORD_VALIDATORS = [
     {

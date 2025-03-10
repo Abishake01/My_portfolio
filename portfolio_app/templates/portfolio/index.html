@@ -6,32 +6,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abi-Portfolio</title>
     {% load static %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'snowfall': 'snowfall 8s linear infinite',
+                        'glowing': 'glowing 20s linear infinite',
+                        'appear': 'appear linear',
+                    },
+                    keyframes: {
+                        snowfall: {
+                            '0%': { backgroundPosition: '0 0' },
+                            '100%': { backgroundPosition: '0 181px' },
+                        },
+                        glowing: {
+                            '0%': { backgroundPosition: '0 0' },
+                            '50%': { backgroundPosition: '400% 0' },
+                            '100%': { backgroundPosition: '800% 0' },
+                        },
+                        appear: {
+                            'from': { opacity: '0', transform: 'scale(0.5)' },
+                            'to': { opacity: '1', transform: 'scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="script" href="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js">
     <link href="{% static 'fontawesomefree/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/brands.css' %}" rel="stylesheet" type="text/css">
     <link href="{% static 'fontawesomefree/css/solid.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'js/app.js' %}">
-    <link rel="stylesheet" href="{% static 'js/particles.js' %}">
- 
-
     <link rel="icon" href="">
+    <style>
+        .animation-background::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 0;
+            background: url('{% static "image/image.png" %}');
+            animation: snowfall 8s linear infinite;
+            height: 100vh;
+            width: 100vw;
+        }
+        
+        body {
+            background-image: url('{% static "image/1.png" %}');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 
-<body>
-    <header>
-        <nav>
-            <div class="nav-head">
-                <div class="head">
-                    <h1><a class="link" href="{% url 'home' %}">My Portfolio</a></h1>
+<body class="m-0 p-0 bg-gray-800 text-white">
+    <header class="w-full top-0 p-0 text-center">
+        <nav class="  flex justify-between items-center flex-wrap px-8">
+            <div class="flex items-center flex-col md:flex-row md:gap-32 lg:gap-64">
+                <div class="text-base">
+                    <h1><a class="inline-block uppercase py-2 px-8 text-white text-xl font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'home' %}">My Portfolio</a></h1>
                 </div>
                 <div class="top-details">
-                    <ul>
-                        <li><a class="link" href=" {% url 'about' %}"> About</a></li>
-                        <li><a class="link" href=" {% url 'project' %}">Projects</a></li>
-                        <li><a class="link" href=" {% url 'skill' %}">Skills</a></li>
-                        <li><a class="link" href=" {% url 'certificate' %}">Certificate</a></li>                        
+                    <ul class="flex flex-col md:flex-row justify-center gap-4 md:gap-5">
+                        <li><a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'about' %}">About</a></li>
+                        <li><a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'project' %}">Projects</a></li>
+                        <li><a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'skill' %}">Skills</a></li>
+                        <li><a class="inline-block uppercase py-2 px-8 text-white text-lg font-bold transition-all duration-500 relative hover:bg-cyan-400 hover:text-black hover:shadow-lg hover:shadow-cyan-400 rounded-lg" href="{% url 'certificate' %}">Certificate</a></li>                        
                     </ul>
                 </div>
             </div>
@@ -41,7 +82,6 @@
    {% block content %}
    
    {% endblock content %}
-    
     
 </body>
 
