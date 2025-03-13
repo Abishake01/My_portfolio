@@ -109,3 +109,57 @@
 
  
   </style>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience Section with Tailwind CSS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-4">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6 pb-2 border-b-2 border-blue-500">Professional Experience</h2>
+    
+    <!-- Experience Item 1 -->
+    <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-md mb-6 overflow-hidden">
+      <div class="w-full md:w-40 bg-gray-50 p-4 flex items-center justify-center">
+        <img src="https://via.placeholder.com/150" alt="Google Logo" class="max-h-24 object-contain">
+      </div>
+      <div class="flex-1 p-4">
+        <h1 class="text-xl font-bold text-gray-800">Google</h1>
+        <div class="text-lg text-blue-600 mb-2">Senior Software Engineer</div>
+        <p class="text-gray-600 mb-3">Developed and maintained cloud-based solutions for enterprise clients. Led a team of 5 developers working on the integration of machine learning algorithms into existing products.</p>
+        <div class="text-sm text-gray-500 italic">January 2020 - Present</div>
+      </div>
+    </div>
+    
+    <!-- Experience Item 2 -->
+    <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-md mb-6 overflow-hidden">
+      <div class="w-full md:w-40 bg-gray-50 p-4 flex items-center justify-center">
+        <img src="https://via.placeholder.com/150" alt="Microsoft Logo" class="max-h-24 object-contain">
+      </div>
+      <div class="flex-1 p-4">
+        <h1 class="text-xl font-bold text-gray-800">Microsoft</h1>
+        <div class="text-lg text-blue-600 mb-2">Software Developer</div>
+        <p class="text-gray-600 mb-3">Contributed to the development of Azure cloud services. Implemented new features and fixed bugs in the core platform components.</p>
+        <div class="text-sm text-gray-500 italic">June 2017 - December 2019</div>
+      </div>
+    </div>
+    
+    <!-- Experience Item 3 -->
+    <div class="flex flex-col md:flex-row bg-white rounded-lg shadow-md mb-6 overflow-hidden">
+      <div class="w-full md:w-40 bg-gray-50 p-4 flex items-center justify-center">
+        <img src="https://via.placeholder.com/150" alt="Amazon Logo" class="max-h-24 object-contain">
+      </div>
+      <div class="flex-1 p-4">
+        <h1 class="text-xl font-bold text-gray-800">Amazon</h1>
+        <div class="text-lg text-blue-600 mb-2">Junior Web Developer</div>
+        <p class="text-gray-600 mb-3">Worked on internal tools for warehouse management. Created responsive web interfaces and implemented API integrations with backend systems.</p>
+        <div class="text-sm text-gray-500 italic">March 2015 - May 2017</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

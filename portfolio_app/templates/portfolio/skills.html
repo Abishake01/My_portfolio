@@ -1,21 +1,36 @@
 {% extends 'portfolio/index.html' %}
-{% block content %}
+{% load static %}
 
-<section id="skills" class="min-h-screen  flex items-center justify-center px-4">
-  <div class="p-8 rounded-lg shadow-lg bg-white/10 backdrop-blur-md w-full max-w-4xl">
-    <h1 class="text-4xl font-extrabold text-white text-center mb-8 drop-shadow-lg">My Skills</h1>
+{% block content %}
+<section id="skills" class="py-16 flex items-center justify-center px-4 ">
+  <div class="p-8 shadow-lg    w-full max-w-5xl   ">
+    <h1 class="text-3xl font-extrabold text-white text-center mb-8 drop-shadow-lg relative">
+      My Skills
+      <span class="block h-1 w-24 bg-blue-500 mx-auto mt-3 rounded-full"></span>
+    </h1>
     
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 place-items-center">
       {% for skill in skills %}
-      <div class="group relative p-4 bg-white/20 backdrop-blur-lg rounded-xl shadow-lg hover:scale-105 hover:bg-white/30 transition-transform duration-300 cursor-pointer">
-        <img src="{{ skill.image.url }}" alt="{{ skill.name }}" class="w-16 h-16 mx-auto transition-transform duration-300 group-hover:rotate-12">
-        <p class="text-white text-center mt-2 text-lg font-semibold">{{ skill.name }}</p>
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+      <div class="group relative p-4 rounded-xl shadow-lg hover:scale-110 hover:bg-white/20 transition-all duration-300 cursor-pointer overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
+        
+        <img src="{{ skill.image.url }}" alt="{{ skill.name }}" class="w-16 h-16 mx-auto transition-all duration-300 group-hover:rotate-12 group-hover:scale-110 relative z-10">
+        
+        <p class="text-white text-center mt-4 text-lg font-semibold group-hover:text-blue-200 transition-colors duration-300 relative z-10">{{ skill.name }}</p>
+        
+        <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-blue-500/30 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      </div>
+      {% empty %}
+      <div class="col-span-full text-center py-12">
+        <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-16 w-16 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        </svg>
+        <p class="mt-4 text-gray-300">No skills found. Add some skills to showcase your talents!</p>
       </div>
       {% endfor %}
     </div>
-
+    
+    
   </div>
 </section>
-
 {% endblock content %}
