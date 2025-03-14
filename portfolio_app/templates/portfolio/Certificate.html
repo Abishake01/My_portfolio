@@ -2,13 +2,32 @@
 {% load static %}
 
 {% block content %}
+<style>
+    .certificate-container {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
 <section class="py-16">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 certificate-container">
         <h2 class="text-3xl font-bold text-center mb-12">Certifications</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {% for certificate in certificates %}
-            <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+            <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden transition-transform duration-300  hover:shadow-lg hover:-translate-y-1 ">
                 <div class="h-48 overflow-hidden">
                     {% if certificate.image %}
                     <img src="{{ certificate.image.url }}" alt="{{ certificate.name }}" class="w-full h-full object-cover">

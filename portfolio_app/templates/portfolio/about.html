@@ -2,9 +2,27 @@
 {% load static %}
 {% block content %}
 
+<style>
+    .about-container {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
 <!-- About Page Section -->
 <section id="about-page" class="pt-16 min-h-screen flex flex-col items-center justify-start md:justify-center">
-    <div class="about-start w-full px-4 md:px-8 lg:px-10 max-w-7xl mx-auto">
+    <div class="about-start w-full px-4 md:px-8 lg:px-10 max-w-7xl mx-auto about-container">
         <div class="flex flex-col md:flex-row gap-8 md:gap-12">
             <!-- Image Container - Full width on mobile -->
             <div class="w-full md:w-1/2 flex justify-center items-center">
@@ -68,7 +86,7 @@
 </section>
 
 <!-- Skills Section -->
-<section id="skills" class="py-16 flex items-center justify-center px-4 ">
+<section id="skills" class="py-16 flex items-center justify-center px-4 about-container">
     <div class="p-8 shadow-lg    w-full max-w-5xl   ">
       <h1 class="text-3xl font-extrabold text-white text-center mb-8 drop-shadow-lg relative">
         My Skills
@@ -103,7 +121,7 @@
 
    
 <section id="experience" class="py-10  ">
-    <div class="container mx-auto px-4">
+    <div class="container mx-auto px-4 about-container">
         <h2 class="text-3xl font-bold text-center mb-10 pb-2 border-b-2 border-blue-500 inline-block ">Professional Experience</h2>
         
         <div class="max-w-4xl mx-auto">
