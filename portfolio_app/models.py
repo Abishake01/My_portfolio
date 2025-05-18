@@ -1,6 +1,7 @@
 from django.db import models
  
 from django.utils import timezone
+from django.utils.timezone import now
 
 class Project(models.Model):
     title = models.CharField(max_length=200)
@@ -39,7 +40,6 @@ class Certificate(models.Model):
         return self.name
 
  
-from django.utils.timezone import now
 
 class Experience(models.Model):
     company_name = models.CharField(max_length=255)
@@ -65,3 +65,24 @@ class Experience(models.Model):
             end = self.end_date.strftime("%B %Y")
             return f"{start} - {end}"
         return start
+    
+    
+class Resume(models.Model):
+    title = models.CharField(max_length=200, default='My Resume')
+    file = models.FileField(upload_to='resumes/')
+    is_active = models.BooleanField(default=False)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-uploaded_at']
+        verbose_name = 'Resume'
+        verbose_name_plural = 'Resumes'
+    
+    def __str__(self):
+        return f"{self.title} ({self.uploaded_at.strftime('%Y-%m-%d')})"
+    
+    def save(self, *args, **kwargs):
+        # Ensure only one resume is active at a time
+        if self.is_active:
+            Resume.objects.filter(is_active=True).update(is_active=False)
+        super().save(*args, **kwargs)

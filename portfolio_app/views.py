@@ -1,15 +1,17 @@
 from django.shortcuts import render
-from .models import Project, Skill , Certificate , Contact_me , Experience
+from .models import Project, Skill , Certificate , Contact_me , Experience , Resume
 
 
 def home(request):
     projects = Project.objects.all()
     contacts = Contact_me.objects.all()
     skills = Skill.objects.all()
+    resume = Resume.objects.filter(is_active=True).first()
     context = {
         'projects': projects,
         'contacts': contacts,
         'skills': skills,
+        'resume': resume,
     }
     return render(request, 'portfolio/home.html', context)
 
@@ -45,4 +47,13 @@ def certificate(request):
     }
     return render(request,'portfolio/Certificate.html',context)
 
+def resume(request):
  
+    resume = Resume.objects.filter(is_active=True).first()
+    if not resume:
+        resume = Resume.objects.order_by('-uploaded_at').first()
+    
+    context = {
+        'resume': resume,
+    }
+    return render(request, 'portfolio/resume.html', context)

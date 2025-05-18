@@ -1,6 +1,30 @@
 from django.contrib import admin
 from .models import *
 
+@admin.register(Resume)
+class ResumeAdmin(admin.ModelAdmin):
+    list_display = ('title', 'uploaded_at', 'is_active')
+    list_filter = ('is_active',)
+    search_fields = ('title',)
+    list_editable = ('is_active',)
+    readonly_fields = ('uploaded_at',)
+    
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'file', 'is_active')
+        }),
+        ('Metadata', {
+            'fields': ('uploaded_at',),
+            'classes': ('collapse',)
+        }),
+    )
+    
+    def save_model(self, request, obj, form, change):
+        # Ensure only one resume is active at a time
+        if obj.is_active:
+            Resume.objects.filter(is_active=True).exclude(pk=obj.pk).update(is_active=False)
+        super().save_model(request, obj, form, change)
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ('title', 'project_url')
