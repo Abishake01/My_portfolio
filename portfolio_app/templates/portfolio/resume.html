@@ -2,73 +2,92 @@
 {% load static %}
 
 {% block content %}
-<section id="resume" class="resume-container">
+<section id="resume" class="resume-container py-16 px-4">
     <!-- Animated Header -->
-    <div class="resume-header text-center mb-5 animate__animated animate__fadeInDown">
-        <h1 class="display-4">My Professional Resume</h1>
-        <p class="lead">Download or view my qualifications and experience</p>
+    <div class="resume-header text-center mb-8 scroll-animate">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            <span class="bg-gradient-to-r from-cyan-400 via-yellow-400 to-cyan-400 bg-clip-text text-transparent">My Professional Resume</span>
+        </h1>
+        <p class="text-lg text-gray-300">Download or view my qualifications and experience</p>
     </div>
 
     <!-- Resume Preview Section -->
-    <div class="resume-preview-section animate__animated animate__fadeIn">
-        <div class="row justify-content-center">
-            <!-- Centered Resume Preview with 30% side margins -->
-            <div class="col-lg-8 col-md-10 col-sm-12 mx-auto">
-                <div class="card shadow-lg">
-                    
-                    <div class="card-body p-0 ml-24" >
-                        <!-- PDF Viewer -->
-                        <div class="pdf-container" id="pdf-viewer" style="min-height: 70vh;">
-                            {% if resume and resume.file %}
-                                <iframe src="{{ resume.file.url }}#toolbar=0&navpanes=0" 
-        style="width:100%; height:0vh;" 
-        frameborder="0"
-        type="application/pdf"></iframe>
-                            {% else %}
-                                <div class="d-flex justify-content-center align-items-center h-100">
-                                    <div class="text-center p-5">
-                                        <i class="fas fa-file-pdf fa-5x text-muted mb-3"></i>
-                                        <h4>No Resume Available</h4>
-                                        <p class="text-muted">Please upload your resume in the admin panel</p>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Centered Download Button at Bottom -->
-                <div class="text-center mt-4">
+    <div class="resume-preview-section scroll-animate">
+        <div class="max-w-5xl mx-auto">
+            <div class="resume-card bg-gray-800/50 backdrop-blur-sm rounded-xl shadow-2xl border border-cyan-500/30 overflow-hidden">
+                <!-- PDF Viewer Container -->
+                <div class="pdf-viewer-container" id="pdf-viewer-container">
                     {% if resume and resume.file %}
-                    <a href="{{ resume.file.url }}" download class="btn btn-primary btn-lg pulse-animation">
-                        <i class="fas fa-download mr-2"></i> Download Resume
-                    </a>
+                        <!-- PDF.js Canvas Container -->
+                        <div id="pdf-canvas-container" class="pdf-canvas-container">
+                            <div class="pdf-controls flex justify-between items-center p-4 bg-gray-900 border-b border-cyan-500/30">
+                                <div class="flex items-center gap-4">
+                                    <button id="prev-page" class="px-4 py-2 bg-cyan-500 text-white rounded hover:bg-cyan-600 transition-colors">
+                                        <i class="fa-solid fa-chevron-left mr-1"></i> Prev
+                                    </button>
+                                    <span class="text-white">
+                                        Page <span id="page-num">1</span> of <span id="page-count">-</span>
+                                    </span>
+                                    <button id="next-page" class="px-4 py-2 bg-cyan-500 text-white rounded hover:bg-cyan-600 transition-colors">
+                                        Next <i class="fa-solid fa-chevron-right ml-1"></i>
+                                    </button>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <button id="zoom-out" class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors">
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+                                    <span class="text-white" id="zoom-level">100%</span>
+                                    <button id="zoom-in" class="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 transition-colors">
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="pdf-viewer-wrapper" id="pdf-viewer-wrapper">
+                                <canvas id="pdf-canvas" class="pdf-canvas"></canvas>
+                            </div>
+                            <div id="pdf-loading" class="flex justify-center items-center h-full">
+                                <div class="text-center">
+                                    <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-400 mx-auto mb-4"></div>
+                                    <p class="text-white">Loading PDF...</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fallback message -->
+                        <div class="pdf-fallback flex flex-col justify-center items-center h-full p-8" id="pdf-fallback" style="display: none;">
+                            <i class="fa-solid fa-file-pdf text-6xl text-gray-400 mb-4"></i>
+                            <p class="text-white text-lg mb-4">Unable to display PDF in browser.</p>
+                            <a href="{{ resume.file.url }}" download target="_blank" class="inline-flex items-center px-6 py-3 bg-cyan-500 text-white font-bold rounded-lg hover:bg-cyan-600 transition-all duration-300">
+                                <i class="fa-solid fa-download mr-2"></i> Download PDF to View
+                            </a>
+                        </div>
+                    {% else %}
+                        <div class="flex justify-center items-center h-96">
+                            <div class="text-center p-8">
+                                <i class="fa-solid fa-file-pdf text-6xl text-gray-400 mb-4"></i>
+                                <h4 class="text-2xl font-bold text-white mb-2">No Resume Available</h4>
+                                <p class="text-gray-400">Please upload your resume in the admin panel</p>
+                            </div>
+                        </div>
                     {% endif %}
                 </div>
+            </div>
+            
+            <!-- Download Button -->
+            <div class="text-center mt-8">
+                {% if resume and resume.file %}
+                <a href="{{ resume.file.url }}" download class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold rounded-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/50 pulse-animation">
+                    <i class="fa-solid fa-download mr-2"></i> Download Resume
+                </a>
+                {% endif %}
             </div>
         </div>
     </div>
 </section>
 
 <style>
-     
-    .animate__animated {
-        animation-duration: 1s;
-    }
-    
-    .pulse-animation {
-        animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.05); }
-        100% { transform: scale(1); }
-    }
-    
     /* Resume Container Styles */
     .resume-container {
-        padding: 3rem 15%; /* 30% total margin (15% each side) */
         min-height: 100vh;
     }
     
@@ -76,104 +95,256 @@
         transition: all 0.3s ease;
     }
     
-    .card {
-        border: none;
-        overflow: hidden;
-        transition: transform 0.3s;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    .resume-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
-    .card:hover {
+    .resume-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
     }
     
-    .pdf-container {
-        background: #f8f9fa;
-        width: 80%;
+    /* PDF Viewer Container */
+    .pdf-viewer-container {
+        width: 100%;
+        height: 80vh;
+        min-height: 600px;
+        position: relative;
+        background: #1f2937;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .pdf-canvas-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    
+    .pdf-viewer-wrapper {
+        flex: 1;
+        overflow: auto;
+        background: #525252;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px;
+    }
+    
+    .pdf-canvas {
+        max-width: 100%;
+        height: auto;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        background: white;
+    }
+    
+    #pdf-loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(31, 41, 55, 0.9);
+        z-index: 10;
+    }
+    
+    .pdf-fallback {
+        background: #1f2937;
+        color: white;
+    }
+    
+    /* Pulse Animation for Download Button */
+    .pulse-animation {
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { 
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.7);
+        }
+        50% { 
+            transform: scale(1.05);
+            box-shadow: 0 0 0 10px rgba(6, 182, 212, 0);
+        }
+        100% { 
+            transform: scale(1);
+            box-shadow: 0 0 0 0 rgba(6, 182, 212, 0);
+        }
     }
     
     /* Responsive Adjustments */
-    @media (max-width: 1200px) {
-        .resume-container {
-            padding: 3rem 10%;
+    @media (max-width: 1024px) {
+        .pdf-viewer-container {
+            height: 70vh;
+            min-height: 500px;
         }
     }
     
     @media (max-width: 768px) {
-        .resume-container {
-            padding: 3rem 5%;
+        .pdf-viewer-container {
+            height: 60vh;
+            min-height: 400px;
         }
         
-        .pdf-container {
+        .resume-header h1 {
+            font-size: 2rem;
+        }
+    }
+    
+    @media (max-width: 640px) {
+        .pdf-viewer-container {
             height: 50vh;
-        }
-        
-        .resume-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
+            min-height: 350px;
         }
     }
 </style>
 
+<!-- PDF.js Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script>
-    // Fullscreen functionality
+    // Set PDF.js worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    
+    // Add animation when elements come into view
     document.addEventListener('DOMContentLoaded', function() {
-        const fullscreenBtn = document.getElementById('fullscreen-btn');
-        if (fullscreenBtn) {
-            fullscreenBtn.addEventListener('click', function() {
-                const pdfViewer = document.getElementById('pdf-viewer');
-                
-                if (!document.fullscreenElement) {
-                    if (pdfViewer.requestFullscreen) {
-                        pdfViewer.requestFullscreen();
-                    } else if (pdfViewer.webkitRequestFullscreen) {
-                        pdfViewer.webkitRequestFullscreen();
-                    } else if (pdfViewer.msRequestFullscreen) {
-                        pdfViewer.msRequestFullscreen();
-                    }
-                } else {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    }
-                }
-            });
-        }
-        
-        // Add animation when elements come into view
+        // Scroll animation observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-                    observer.unobserve(entry.target);
+                    entry.target.classList.add('visible');
                 }
             });
         }, { threshold: 0.1 });
         
-        document.querySelectorAll('.resume-preview-section').forEach(section => {
+        document.querySelectorAll('.scroll-animate').forEach(section => {
             observer.observe(section);
         });
+        
+        {% if resume and resume.file %}
+        // PDF.js implementation
+        var pdfUrl = "{{ resume.file.url }}";
+        var pdfDoc = null;
+        var pageNum = 1;
+        var pageRendering = false;
+        var pageNumPending = null;
+        var scale = 1.0;
+        var canvas = document.getElementById('pdf-canvas');
+        var ctx = canvas.getContext('2d');
+        var loadingDiv = document.getElementById('pdf-loading');
+        var fallbackDiv = document.getElementById('pdf-fallback');
+        
+        console.log('Loading PDF from:', pdfUrl);
+        
+        /**
+         * Get page info from document, resize canvas accordingly, and render page.
+         */
+        function renderPage(num) {
+            pageRendering = true;
+            pdfDoc.getPage(num).then(function(page) {
+                var viewport = page.getViewport({scale: scale});
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+                
+                var renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+                var renderTask = page.render(renderContext);
+                
+                renderTask.promise.then(function() {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                    loadingDiv.style.display = 'none';
+                });
+            });
+            
+            document.getElementById('page-num').textContent = num;
+        }
+        
+        /**
+         * If another page rendering in progress, waits until the rendering is
+         * finised. Otherwise, executes rendering immediately.
+         */
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+        
+        /**
+         * Shows previous page.
+         */
+        function onPrevPage() {
+            if (pageNum <= 1) {
+                return;
+            }
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+        document.getElementById('prev-page').addEventListener('click', onPrevPage);
+        
+        /**
+         * Shows next page.
+         */
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) {
+                return;
+            }
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+        document.getElementById('next-page').addEventListener('click', onNextPage);
+        
+        /**
+         * Zoom in
+         */
+        function onZoomIn() {
+            scale += 0.2;
+            if (scale > 3.0) scale = 3.0;
+            document.getElementById('zoom-level').textContent = Math.round(scale * 100) + '%';
+            queueRenderPage(pageNum);
+        }
+        document.getElementById('zoom-in').addEventListener('click', onZoomIn);
+        
+        /**
+         * Zoom out
+         */
+        function onZoomOut() {
+            scale -= 0.2;
+            if (scale < 0.5) scale = 0.5;
+            document.getElementById('zoom-level').textContent = Math.round(scale * 100) + '%';
+            queueRenderPage(pageNum);
+        }
+        document.getElementById('zoom-out').addEventListener('click', onZoomOut);
+        
+        /**
+         * Asynchronously downloads PDF.
+         */
+        pdfjsLib.getDocument(pdfUrl).promise.then(function(pdfDoc_) {
+            pdfDoc = pdfDoc_;
+            document.getElementById('page-count').textContent = pdfDoc.numPages;
+            
+            // Initial page render
+            renderPage(pageNum);
+        }).catch(function(error) {
+            console.error('Error loading PDF:', error);
+            loadingDiv.style.display = 'none';
+            if (fallbackDiv) {
+                fallbackDiv.style.display = 'flex';
+            }
+        });
+        {% endif %}
     });
-    
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
-<script>
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.worker.min.js';
-  
-  pdfjsLib.getDocument("{{ resume.file.url }}").promise.then(function(pdf) {
-    pdf.getPage(1).then(function(page) {
-      const scale = 1.5;
-      const viewport = page.getViewport({scale: scale});
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
-      
-      document.getElementById('pdf-viewer').appendChild(canvas);
-      page.render({canvasContext: context, viewport: viewport});
-    });
-  });
 </script>
 
 {% endblock content %}
