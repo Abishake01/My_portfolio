@@ -4,21 +4,18 @@
 
 <style>
     .about-container {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
+        opacity: 0;
+        transform: translateY(50px);
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
+    .github-stats-card {
+        transition: all 0.3s ease;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    
+    .github-stats-card:hover {
+        transform: translateY(-5px);
     }
-  }
 </style>
 <!-- About Page Section -->
 <section id="about-page" class="pt-16 min-h-screen flex flex-col items-center justify-start md:justify-center">
@@ -120,6 +117,43 @@
 
 
    
+<!-- GitHub Statistics Section -->
+<section id="github-stats" class="py-16 px-4 about-container">
+    <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-12 text-white">
+            <span class="bg-gradient-to-r from-cyan-400 via-yellow-400 to-cyan-400 bg-clip-text text-transparent">GitHub Statistics</span>
+        </h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+            <!-- GitHub Stats Card -->
+            <div class="github-stats-card rounded-xl p-6 bg-gray-800/80 backdrop-blur-sm border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30">
+                <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                    <i class="fa-brands fa-github text-cyan-400 mr-3"></i>
+                    Profile Stats
+                </h3>
+                <div class="flex justify-center">
+                    <img src="https://github-readme-stats.vercel.app/api?username=Abishake01&show_icons=true&theme=react&count_private=true&include_all_commits=true&bg_color=1F2937&title_color=06B6D4&text_color=FFFFFF&icon_color=06B6D4&border_color=06B6D4" 
+                         alt="Abishake01's GitHub stats" 
+                         class="w-full rounded-lg" />
+                </div>
+            </div>
+
+            <!-- GitHub Contribution Calendar -->
+            <div class="github-stats-card rounded-xl p-6 bg-gray-800/80 backdrop-blur-sm border border-cyan-500/30 hover:border-cyan-500/60 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/30">
+                <h3 class="text-2xl font-bold text-white mb-4 flex items-center">
+                    <i class="fa-solid fa-calendar-days text-cyan-400 mr-3"></i>
+                    Contribution Graph
+                </h3>
+                <div class="flex justify-center overflow-x-auto">
+                    <img src="https://github-readme-activity-graph.vercel.app/graph?username=Abishake01&theme=react&bg_color=1F2937&color=06B6D4&line=06B6D4&point=FFFFFF&area=true&hide_border=true" 
+                         alt="Abishake01's GitHub contribution graph" 
+                         class="w-full rounded-lg" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="experience" class="py-10  ">
     <div class="container mx-auto px-4 about-container">
         <h2 class="text-3xl font-bold text-center mb-10 pb-2 border-b-2 border-blue-500 inline-block ">Professional Experience</h2>
