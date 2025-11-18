@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Project, Skill , Certificate , Contact_me , Experience , Resume
+from .models import Project, Skill , Certificate , Contact_me , Experience , Resume , Gallery
 
 
 def home(request):
@@ -57,3 +57,19 @@ def resume(request):
         'resume': resume,
     }
     return render(request, 'portfolio/resume.html', context)
+
+def gallery(request):
+    galleries = Gallery.objects.all()
+    
+    # Group by category
+    hackathons = galleries.filter(category='hackathons')
+    events = galleries.filter(category='events')
+    personal = galleries.filter(category='personal')
+    
+    context = {
+        'galleries': galleries,
+        'hackathons': hackathons,
+        'events': events,
+        'personal': personal,
+    }
+    return render(request, 'portfolio/gallery.html', context)

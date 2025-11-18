@@ -104,3 +104,22 @@ class ExperienceAdmin(admin.ModelAdmin):
         if obj.is_current:
             obj.end_date = None
         super().save_model(request, obj, form, change)
+
+@admin.register(Gallery)
+class GalleryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'category', 'event_date', 'order', 'created_at')
+    list_filter = ('category', 'created_at')
+    search_fields = ('title', 'description')
+    list_editable = ('order', 'category')
+    
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'description', 'category')
+        }),
+        ('Image', {
+            'fields': ('image',)
+        }),
+        ('Details', {
+            'fields': ('event_date', 'order')
+        }),
+    )

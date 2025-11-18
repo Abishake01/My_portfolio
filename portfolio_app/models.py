@@ -86,3 +86,27 @@ class Resume(models.Model):
         if self.is_active:
             Resume.objects.filter(is_active=True).update(is_active=False)
         super().save(*args, **kwargs)
+
+
+class Gallery(models.Model):
+    CATEGORY_CHOICES = [
+        ('hackathons', 'Hackathons'),
+        ('events', 'Events'),
+        ('personal', 'Personal'),
+    ]
+    
+    title = models.CharField(max_length=200)
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='gallery_images/')
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='personal')
+    event_date = models.DateField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    order = models.IntegerField(default=0)
+    
+    class Meta:
+        ordering = ['-order', '-created_at']
+        verbose_name = 'Gallery Item'
+        verbose_name_plural = 'Gallery Items'
+    
+    def __str__(self):
+        return f"{self.title} ({self.get_category_display()})"
